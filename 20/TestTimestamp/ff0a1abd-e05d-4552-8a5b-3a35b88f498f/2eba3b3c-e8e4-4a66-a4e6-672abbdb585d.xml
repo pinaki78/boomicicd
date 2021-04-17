@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Component xmlns:ns2="http://www.boomi.com/connector/annotation"
+xmlns:ns3="http://exacttarget.com/wsdl/partnerAPI"
+xmlns:ns4="urn:fault.partner.exacttarget.com"
+xmlns:ns5="http://schemas.boomi.com/sap/edi_dc40"
+xmlns:ns6="http://schemas.microsoft.com/2003/10/Serialization/"
+deleted="false">
+  <Id>2eba3b3c-e8e4-4a66-a4e6-672abbdb585d</Id>
+  <Type>script.processing</Type>
+  <Name>SetErrorType</Name>
+  <Version>18</Version>
+  <FolderId name="Training-P-Chakraborty/Learnings">
+  2243703</FolderId>
+  <AccountId>trainingpchakraborty-XJQZPO</AccountId>
+  <Properties />
+  <References />
+  <Description />
+  <Object>
+    <ProcessingScript language="groovy2">
+      <script>import java.util.Properties; import
+      java.io.InputStream; import java.util.Date; import
+      java.sql.Timestamp; import java.text.SimpleDateFormat; import
+      java.time.format.DateTimeFormatter; import
+      com.boomi.execution.ExecutionUtil; logger =
+      ExecutionUtil.getBaseLogger(); String ErrorType="T"; String
+      ResponseErrorCode =
+      ExecutionUtil.getDynamicProcessProperty("ResponseErrorCode");
+      if(ResponseErrorCode=="404" || ResponseErrorCode=="400"){
+      ErrorType="D"; } else if(ResponseErrorCode=="507"){
+      ErrorType="R"; }
+      ExecutionUtil.setDynamicProcessProperty("ErrorTypeDetected",
+      ErrorType, false); if(ErrorType=="R") { SimpleDateFormat Sdf=
+      new SimpleDateFormat("yyy-MM-dd HH:mm:ss"); String lastTS =
+      ExecutionUtil.getDynamicProcessProperty("LAST_REDIS_TS");
+      String RedisTimeout =
+      ExecutionUtil.getDynamicProcessProperty("RedisTimeout");
+      logger.info("LAST_TS on end: "+lastTS); String
+      CurrentTimeStamp = new SimpleDateFormat("yyy-MM-dd
+      HH:mm:ss").format(new Date()); logger.info("Current TS on
+      end: "+CurrentTimeStamp); Date d1 =
+      Sdf.parse(CurrentTimeStamp); Date d2 = Sdf.parse(lastTS);
+      long difference_In_Time = d1.getTime() - d2.getTime(); long
+      difference_In_Minutes= (difference_In_Time/ (1000 * 60));
+      logger.info("Difference: "+difference_In_Time);
+      if(difference_In_Minutes&gt;Integer.parseInt(RedisTimeout)){
+      logger.info("Big: "+difference_In_Minutes);
+      ExecutionUtil.setDynamicProcessProperty("SendRedisError",
+      "0", false); } else { logger.info("Small:
+      "+difference_In_Minutes);
+      ExecutionUtil.setDynamicProcessProperty("SendRedisError",
+      "1", false); } } for( int i = 0; i &lt;
+      dataContext.getDataCount(); i++ ) { InputStream is =
+      dataContext.getStream(i); Properties props =
+      dataContext.getProperties(i); dataContext.storeStream(is,
+      props); }</script>
+    </ProcessingScript>
+  </Object>
+</Component>
