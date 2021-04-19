@@ -1,0 +1,107 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Component xmlns:ns2="http://www.boomi.com/connector/annotation"
+xmlns:ns3="http://exacttarget.com/wsdl/partnerAPI"
+xmlns:ns4="urn:fault.partner.exacttarget.com"
+xmlns:ns5="http://schemas.boomi.com/sap/edi_dc40"
+xmlns:ns6="http://schemas.microsoft.com/2003/10/Serialization/"
+deleted="false">
+  <Id>4ad58a4b-73b8-49b5-8632-f929728ca58b</Id>
+  <Type>transform.function</Type>
+  <Name>NS Get Select Value Lookup</Name>
+  <Version>1</Version>
+  <FolderId name="Training-P-Chakraborty/Certification">
+  2400156</FolderId>
+  <AccountId>trainingpchakraborty-XJQZPO</AccountId>
+  <Properties />
+  <References>
+    <Ref compId="ee60fb04-defc-4242-8560-a4f4b931431b"
+    refId="function-1-connection" name="NetSuite 2016.1 2" />
+    <Ref compId="ee96c435-b6cd-49ad-9da6-e85bf7e87284"
+    refId="function-1-operation" name="Get Select Value 2016.1" />
+    <Ref compId="8215bec2-3d4c-4228-9a77-10828b10f8c6"
+    refId="function-1-parameterProfile"
+    name="NetSuite Get Select Value EXECUTE Request 2016.1" />
+    <Ref compId="6d81af53-5ec2-4124-89a3-0cb904ba4621"
+    refId="function-1-outputProfile"
+    name="NetSuite Get Select Value EXECUTE Response 2016.1" />
+  </References>
+  <Description />
+  <Object>
+    <Function>
+      <Inputs>
+        <Input key="1" name="Record Type" />
+        <Input key="2" name="Field" />
+        <Input key="3" name="Text Value" />
+      </Inputs>
+      <Outputs>
+        <Output key="1" name="NS internal ID" />
+      </Outputs>
+      <Steps>
+        <FunctionStep cacheEnabled="true" cacheOption="map"
+        category="Connector" key="1" name="Connector Call"
+        position="1" sumEnabled="false" type="ConnectorCall"
+        x="151.0" y="147.0">
+          <Inputs>
+            <Input default="" key="1"
+            name="recordType (getSelectValue/fieldDescription/recordType)" />
+            <Input default="" key="2"
+            name="field (getSelectValue/fieldDescription/field)" />
+            <Input default="contains" key="3"
+            name="@operator (getSelectValue/fieldDescription/filter/@operator)" />
+            <Input default="" key="4"
+            name="filterValue (getSelectValue/fieldDescription/filter/filterValue)" />
+            <Input default="0" key="5"
+            name="pageIndex (getSelectValue/pageIndex)" />
+          </Inputs>
+          <Outputs>
+            <Output key="6"
+            name="@internalId (recordRef/@internalId)" />
+          </Outputs>
+          <Configuration>
+            <ConnectorCall actionType="EXECUTE"
+            connectionId="ee60fb04-defc-4242-8560-a4f4b931431b"
+            connectorType="netsuitesdk" enforceSingleResult="true"
+            operationId="ee96c435-b6cd-49ad-9da6-e85bf7e87284"
+            output-profile="6d81af53-5ec2-4124-89a3-0cb904ba4621"
+            parameter-profile="8215bec2-3d4c-4228-9a77-10828b10f8c6">
+
+              <Input index="1" key="40"
+              name="recordType (getSelectValue/fieldDescription/recordType)" />
+              <Input index="2" key="46"
+              name="field (getSelectValue/fieldDescription/field)" />
+              <Input index="3" key="70"
+              name="@operator (getSelectValue/fieldDescription/filter/@operator)" />
+              <Input index="4" key="72"
+              name="filterValue (getSelectValue/fieldDescription/filter/filterValue)" />
+              <Input index="5" key="38"
+              name="pageIndex (getSelectValue/pageIndex)" />
+              <Output index="6" key="10"
+              name="@internalId (recordRef/@internalId)" />
+            </ConnectorCall>
+          </Configuration>
+        </FunctionStep>
+      </Steps>
+      <Mappings>
+        <Mapping fromFunction="0" fromKey="1"
+        fromNamePath="Editor/Record Type" fromType="function"
+        toFunction="1" toKey="1"
+        toNamePath="Connector Call/recordType (getSelectValue/fieldDescription/recordType)"
+        toType="function" />
+        <Mapping fromFunction="1" fromKey="6"
+        fromNamePath="Connector Call/@internalId (recordRef/@internalId)"
+        fromType="function" toFunction="0" toKey="1"
+        toNamePath="Editor/NS internal ID" toType="function" />
+        <Mapping fromFunction="0" fromKey="2"
+        fromNamePath="Editor/Field" fromType="function"
+        toFunction="1" toKey="2"
+        toNamePath="Connector Call/field (getSelectValue/fieldDescription/field)"
+        toType="function" />
+        <Mapping fromFunction="0" fromKey="3"
+        fromNamePath="Editor/Value" fromType="function"
+        toFunction="1" toKey="4"
+        toNamePath="Connector Call/filterValue (getSelectValue/fieldDescription/filter/filterValue)"
+        toType="function" />
+      </Mappings>
+    </Function>
+  </Object>
+</Component>

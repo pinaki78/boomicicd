@@ -1,0 +1,934 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Component xmlns:ns2="http://www.boomi.com/connector/annotation"
+xmlns:ns3="http://exacttarget.com/wsdl/partnerAPI"
+xmlns:ns4="urn:fault.partner.exacttarget.com"
+xmlns:ns5="http://schemas.boomi.com/sap/edi_dc40"
+xmlns:ns6="http://schemas.microsoft.com/2003/10/Serialization/"
+deleted="false">
+  <Id>d7786842-55bc-4d62-8339-43861ba116b7</Id>
+  <Type>process</Type>
+  <Name>Salesforce Accounts to NetSuite Customers Full
+  Example</Name>
+  <Version>1</Version>
+  <FolderId name="Training-P-Chakraborty/Certification">
+  2400156</FolderId>
+  <AccountId>trainingpchakraborty-XJQZPO</AccountId>
+  <Properties>
+    <Property>
+      <Name>overrides-enabled</Name>
+      <Value>true</Value>
+    </Property>
+    <Property>
+      <Name>startshape-action-type</Name>
+      <Value>Get</Value>
+    </Property>
+    <Property>
+      <Name>startshape-type</Name>
+      <Value>CONNECTOR</Value>
+    </Property>
+    <Property>
+      <Name>startshape-connector-type</Name>
+      <Value>salesforce</Value>
+    </Property>
+  </Properties>
+  <References>
+    <Ref compId="4951eba8-c7df-4f0b-bc6b-dc1b7077bcda"
+    refId="shape1.connection" name="My Salesforce Org" />
+    <Ref compId="ebb40608-9c14-4bbf-907d-ec3e7a9d7bf0"
+    refId="shape1.operation"
+    name="Account Query by Last Mod Date (full)" />
+    <Ref compId="ee60fb04-defc-4242-8560-a4f4b931431b"
+    refId="shape4.connection" name="NetSuite 2016.1 2" />
+    <Ref compId="ee60fb04-defc-4242-8560-a4f4b931431b"
+    refId="shape5.connection" name="NetSuite 2016.1 2" />
+    <Ref compId="bcc91f57-fc0a-4325-888e-8efc1693fab3"
+    refId="shape5.operation" name="Customer Upsert 2016.1" />
+    <Ref compId="e39fc972-184a-4c36-bd04-dd399d3897be"
+    refId="shape6" name="SFDC Account to NS Customer Upsert" />
+    <Ref compId="4b03ded0-83c6-4b42-b189-8e0956530107"
+    refId="shape4.operation"
+    name="Subsidiary Query 2016.1 by IsInactive" />
+    <Ref compId="5f3f3d4a-7fb0-49fb-8817-a0fa9b985cde"
+    refId="shape7" name="NS Subsidiary" />
+    <Ref compId="64641838-3648-4831-bf81-0bec87f2b3d6"
+    refId="shape13-parameter-1-profile"
+    name="SF_Account_UPSERT_Request" />
+    <Ref compId="64641838-3648-4831-bf81-0bec87f2b3d6"
+    refId="shape13-parameter-2-profile"
+    name="SF_Account_UPSERT_Request" />
+    <Ref compId="bbb5d15c-2388-40c7-a450-9fb1dc9cef39"
+    refId="shape14.processpropertybbb5d15c-2388-40c7-a450-9fb1dc9cef39"
+    name="VAR Runtime Props" />
+    <Ref compId="84410d0b-db0c-45ba-936c-1e5cdf0997fc"
+    refId="shape14-parameter-4-processproperty"
+    name="CONST Global Values" />
+    <Ref compId="de702c34-7079-4bb7-9c87-3c7d4f46ef27"
+    refId="shape14-parameter-1-processproperty"
+    name="SFDC Account Sync Config" />
+    <Ref compId="de702c34-7079-4bb7-9c87-3c7d4f46ef27"
+    refId="shape14-parameter-2-processproperty"
+    name="SFDC Account Sync Config" />
+    <Ref compId="de702c34-7079-4bb7-9c87-3c7d4f46ef27"
+    refId="shape14-parameter-3-processproperty"
+    name="SFDC Account Sync Config" />
+    <Ref compId="5f83c378-9e45-4168-a71f-ca93ddc4d239"
+    refId="shape15-profile"
+    name="NetSuite Customer COMMON 2016.1" />
+    <Ref compId="57140dfa-44c6-4b1c-9a16-a09f31d8287f"
+    refId="shape15-rule1-function3"
+    name="Store Last Record Date (BR, PPC)" />
+    <Ref compId="bbb5d15c-2388-40c7-a450-9fb1dc9cef39"
+    refId="shape20-0-processproperty" name="VAR Runtime Props" />
+    <Ref compId="84410d0b-db0c-45ba-936c-1e5cdf0997fc"
+    refId="shape20-1-processproperty" name="CONST Global Values" />
+    <Ref compId="bbb5d15c-2388-40c7-a450-9fb1dc9cef39"
+    refId="shape21-parameter-1-processproperty"
+    name="VAR Runtime Props" />
+    <Ref compId="de702c34-7079-4bb7-9c87-3c7d4f46ef27"
+    refId="shape21.processpropertyde702c34-7079-4bb7-9c87-3c7d4f46ef27"
+    name="SFDC Account Sync Config" />
+  </References>
+  <Description>This process shows a representative end-to-end
+  integration of Salesforce Accounts to NetSuite Customers.
+  Accounts are extracted incrementally from Salesforce based on
+  Last Modified Date and sent to NetSuite using the Upsert action
+  to create or update Customer based on the @externalId field. The
+  process and map include techniques for efficiently obtaining the
+  required NetSuite internal ID values for RecordRef-type fields
+  including: 1) Using a connector call map function to invoke the
+  Get Select Value call for fields that are not full-fledged
+  objects in the NetSuite SuiteTalk API 2) Extracting all list
+  records and storing in a local document cache</Description>
+  <Object>
+    <process allowSimultaneous="false" enableUserLog="false"
+    processLogOnErrorOnly="false" purgeDataImmediately="false"
+    updateRunDates="false" workload="general">
+      <shapes>
+        <shape image="start" name="shape1" shapetype="start"
+        userlabel="" x="32.0" y="208.0">
+          <configuration>
+            <connectoraction actionType="Get"
+            connectionId="4951eba8-c7df-4f0b-bc6b-dc1b7077bcda"
+            connectorType="salesforce" hideSettings="false"
+            operationId="ebb40608-9c14-4bbf-907d-ec3e7a9d7bf0"
+            parameter-profile="EMBEDDED|salesforceparameterchooser|ebb40608-9c14-4bbf-907d-ec3e7a9d7bf0">
+
+              <parameters>
+                <parametervalue elementToSetId="1"
+                elementToSetName="Name Like" key="0"
+                valueType="static">
+                  <staticparameter staticproperty="%Demo%" />
+                </parametervalue>
+              </parameters>
+            </connectoraction>
+          </configuration>
+          <dragpoints>
+            <dragpoint name="shape1.dragpoint1" toShape="shape14"
+            x="144.0" y="217.0">
+              <linesegment length="0"
+              name="shape1.dragpoint1.lineseg1" orient="horizontal"
+              x="66.0" y="223.0" />
+              <linesegment length="0"
+              name="shape1.dragpoint1.lineseg2" orient="vertical"
+              x="66.0" y="223.0" />
+              <linesegment length="47"
+              name="shape1.dragpoint1.lineseg3" orient="horizontal"
+              x="66.0" y="223.0" />
+              <linesegment length="0"
+              name="shape1.dragpoint1.lineseg4" orient="vertical"
+              x="113.0" y="223.0" />
+              <linesegment length="31"
+              name="shape1.dragpoint1.lineseg5" orient="horizontal"
+              x="113.0" y="223.0" />
+            </dragpoint>
+          </dragpoints>
+        </shape>
+        <shape image="branch_icon" name="shape2" shapetype="branch"
+        userlabel="" x="608.0" y="208.0">
+          <configuration>
+            <branch numBranches="3" />
+          </configuration>
+          <dragpoints>
+            <dragpoint identifier="1" name="shape2.dragpoint1"
+            text="1" toShape="shape3" x="704.0" y="73.0">
+              <linesegment length="0"
+              name="shape2.dragpoint1.lineseg1" orient="horizontal"
+              x="642.0" y="223.0" />
+              <linesegment length="0"
+              name="shape2.dragpoint1.lineseg2" orient="vertical"
+              x="642.0" y="223.0" />
+              <linesegment length="39"
+              name="shape2.dragpoint1.lineseg3" orient="horizontal"
+              x="642.0" y="223.0" />
+              <linesegment length="144"
+              name="shape2.dragpoint1.lineseg4" orient="vertical"
+              x="681.0" y="79.0" />
+              <linesegment label="1" length="23"
+              name="shape2.dragpoint1.lineseg5" orient="horizontal"
+              x="681.0" y="79.0" />
+            </dragpoint>
+            <dragpoint identifier="2" name="shape2.dragpoint2"
+            text="2" toShape="shape6" x="704.0" y="217.0">
+              <linesegment length="0"
+              name="shape2.dragpoint2.lineseg1" orient="horizontal"
+              x="642.0" y="223.0" />
+              <linesegment length="0"
+              name="shape2.dragpoint2.lineseg2" orient="vertical"
+              x="642.0" y="223.0" />
+              <linesegment length="39"
+              name="shape2.dragpoint2.lineseg3" orient="horizontal"
+              x="642.0" y="223.0" />
+              <linesegment length="0"
+              name="shape2.dragpoint2.lineseg4" orient="vertical"
+              x="681.0" y="223.0" />
+              <linesegment label="2" length="23"
+              name="shape2.dragpoint2.lineseg5" orient="horizontal"
+              x="681.0" y="223.0" />
+            </dragpoint>
+            <dragpoint identifier="3" name="shape2.dragpoint3"
+            text="3" toShape="shape20" x="704.0" y="361.0">
+              <linesegment length="0"
+              name="shape2.dragpoint3.lineseg1" orient="horizontal"
+              x="642.0" y="223.0" />
+              <linesegment length="0"
+              name="shape2.dragpoint3.lineseg2" orient="vertical"
+              x="642.0" y="223.0" />
+              <linesegment length="39"
+              name="shape2.dragpoint3.lineseg3" orient="horizontal"
+              x="642.0" y="223.0" />
+              <linesegment length="144"
+              name="shape2.dragpoint3.lineseg4" orient="vertical"
+              x="681.0" y="223.0" />
+              <linesegment label="3" length="23"
+              name="shape2.dragpoint3.lineseg5" orient="horizontal"
+              x="681.0" y="367.0" />
+            </dragpoint>
+          </dragpoints>
+        </shape>
+        <shape image="dataprocess_icon" name="shape3"
+        shapetype="dataprocess" userlabel="CS Single Document"
+        x="720.0" y="64.0">
+          <configuration>
+            <dataprocess>
+              <step index="1" key="1" name="Custom Scripting"
+              processtype="12">
+                <dataprocessscript language="groovy">
+                  <script>import java.util.Properties; import
+                  java.io.InputStream; /* This script outputs a
+                  single document regardless of how many incoming
+                  documents are received in order to execute
+                  subsequent process shapes only once. Note the
+                  for-loop's upper bound is hard coded to 1 instead
+                  of the usual dataContext.getDataCount(). */ for(
+                  int i = 0; i &lt; 1; i++ ) { InputStream is =
+                  dataContext.getStream(i); Properties props =
+                  dataContext.getProperties(i);
+                  dataContext.storeStream(is, props); }</script>
+                </dataprocessscript>
+              </step>
+            </dataprocess>
+          </configuration>
+          <dragpoints>
+            <dragpoint name="shape3.dragpoint1" toShape="shape4"
+            x="848.0" y="73.0">
+              <linesegment length="0"
+              name="shape3.dragpoint1.lineseg1" orient="horizontal"
+              x="754.0" y="79.0" />
+              <linesegment length="0"
+              name="shape3.dragpoint1.lineseg2" orient="vertical"
+              x="754.0" y="79.0" />
+              <linesegment length="55"
+              name="shape3.dragpoint1.lineseg3" orient="horizontal"
+              x="754.0" y="79.0" />
+              <linesegment length="0"
+              name="shape3.dragpoint1.lineseg4" orient="vertical"
+              x="809.0" y="79.0" />
+              <linesegment length="39"
+              name="shape3.dragpoint1.lineseg5" orient="horizontal"
+              x="809.0" y="79.0" />
+            </dragpoint>
+          </dragpoints>
+        </shape>
+        <shape image="connectoraction_icon" name="shape4"
+        shapetype="connectoraction" userlabel="" x="864.0"
+        y="64.0">
+          <configuration>
+            <connectoraction actionType="QUERY"
+            connectionId="ee60fb04-defc-4242-8560-a4f4b931431b"
+            connectorType="netsuitesdk" hideSettings="false"
+            operationId="4b03ded0-83c6-4b42-b189-8e0956530107"
+            parameter-profile="EMBEDDED|genericparameterchooser|4b03ded0-83c6-4b42-b189-8e0956530107">
+
+              <parameters>
+                <parametervalue elementToSetId="1"
+                elementToSetName="IsInactive=" key="0"
+                valueType="static">
+                  <staticparameter staticproperty="false" />
+                </parametervalue>
+              </parameters>
+            </connectoraction>
+          </configuration>
+          <dragpoints>
+            <dragpoint name="shape4.dragpoint1" toShape="shape7"
+            x="1040.0" y="73.0">
+              <linesegment length="0"
+              name="shape4.dragpoint1.lineseg1" orient="horizontal"
+              x="898.0" y="79.0" />
+              <linesegment length="0"
+              name="shape4.dragpoint1.lineseg2" orient="vertical"
+              x="898.0" y="79.0" />
+              <linesegment length="79"
+              name="shape4.dragpoint1.lineseg3" orient="horizontal"
+              x="898.0" y="79.0" />
+              <linesegment length="0"
+              name="shape4.dragpoint1.lineseg4" orient="vertical"
+              x="977.0" y="79.0" />
+              <linesegment length="63"
+              name="shape4.dragpoint1.lineseg5" orient="horizontal"
+              x="977.0" y="79.0" />
+            </dragpoint>
+          </dragpoints>
+        </shape>
+        <shape image="connectoraction_icon" name="shape5"
+        shapetype="connectoraction" userlabel="" x="928.0"
+        y="208.0">
+          <configuration>
+            <connectoraction actionType="UPSERT"
+            connectionId="ee60fb04-defc-4242-8560-a4f4b931431b"
+            connectorType="netsuitesdk" hideSettings="false"
+            operationId="bcc91f57-fc0a-4325-888e-8efc1693fab3"
+            parameter-profile="5f83c378-9e45-4168-a71f-ca93ddc4d239">
+
+              <parameters />
+            </connectoraction>
+          </configuration>
+          <dragpoints>
+            <dragpoint name="shape5.dragpoint1" toShape="shape10"
+            x="1088.0" y="217.0">
+              <linesegment length="0"
+              name="shape5.dragpoint1.lineseg1" orient="horizontal"
+              x="962.0" y="223.0" />
+              <linesegment length="0"
+              name="shape5.dragpoint1.lineseg2" orient="vertical"
+              x="962.0" y="223.0" />
+              <linesegment length="71"
+              name="shape5.dragpoint1.lineseg3" orient="horizontal"
+              x="962.0" y="223.0" />
+              <linesegment length="0"
+              name="shape5.dragpoint1.lineseg4" orient="vertical"
+              x="1033.0" y="223.0" />
+              <linesegment length="55"
+              name="shape5.dragpoint1.lineseg5" orient="horizontal"
+              x="1033.0" y="223.0" />
+            </dragpoint>
+          </dragpoints>
+        </shape>
+        <shape image="map_icon" name="shape6" shapetype="map"
+        userlabel="" x="720.0" y="208.0">
+          <configuration>
+            <map mapId="e39fc972-184a-4c36-bd04-dd399d3897be" />
+          </configuration>
+          <dragpoints>
+            <dragpoint name="shape6.dragpoint1" toShape="shape5"
+            x="912.0" y="217.0">
+              <linesegment length="0"
+              name="shape6.dragpoint1.lineseg1" orient="horizontal"
+              x="754.0" y="223.0" />
+              <linesegment length="0"
+              name="shape6.dragpoint1.lineseg2" orient="vertical"
+              x="754.0" y="223.0" />
+              <linesegment length="87"
+              name="shape6.dragpoint1.lineseg3" orient="horizontal"
+              x="754.0" y="223.0" />
+              <linesegment length="0"
+              name="shape6.dragpoint1.lineseg4" orient="vertical"
+              x="841.0" y="223.0" />
+              <linesegment length="71"
+              name="shape6.dragpoint1.lineseg5" orient="horizontal"
+              x="841.0" y="223.0" />
+            </dragpoint>
+          </dragpoints>
+        </shape>
+        <shape image="doccacheload_icon" name="shape7"
+        shapetype="doccacheload" userlabel="" x="1056.0" y="64.0">
+          <configuration>
+            <doccacheload docCache="5f3f3d4a-7fb0-49fb-8817-a0fa9b985cde" />
+          </configuration>
+          <dragpoints />
+        </shape>
+        <shape image="decision_icon" name="shape10"
+        shapetype="decision" userlabel="Success?" x="1104.0"
+        y="208.0">
+          <configuration>
+            <decision comparison="equals" name="Success?">
+              <decisionvalue valueType="track">
+                <trackparameter defaultValue=""
+                propertyId="meta.base.applicationstatuscode"
+                propertyName="Base - Application Status Code" />
+              </decisionvalue>
+              <decisionvalue valueType="static">
+                <staticparameter staticproperty="" />
+              </decisionvalue>
+            </decision>
+          </configuration>
+          <dragpoints>
+            <dragpoint identifier="true" name="shape10.dragpoint1"
+            text="True" toShape="shape9" x="1200.0" y="217.0">
+              <linesegment length="0"
+              name="shape10.dragpoint1.lineseg1"
+              orient="horizontal" x="1138.0" y="223.0" />
+              <linesegment length="0"
+              name="shape10.dragpoint1.lineseg2" orient="vertical"
+              x="1138.0" y="223.0" />
+              <linesegment length="39"
+              name="shape10.dragpoint1.lineseg3"
+              orient="horizontal" x="1138.0" y="223.0" />
+              <linesegment length="0"
+              name="shape10.dragpoint1.lineseg4" orient="vertical"
+              x="1177.0" y="223.0" />
+              <linesegment label="True" length="23"
+              name="shape10.dragpoint1.lineseg5"
+              orient="horizontal" x="1177.0" y="223.0" />
+            </dragpoint>
+            <dragpoint identifier="false" name="shape10.dragpoint2"
+            text="False" toShape="shape12" x="1200.0" y="297.0">
+              <linesegment length="0"
+              name="shape10.dragpoint2.lineseg1"
+              orient="horizontal" x="1138.0" y="223.0" />
+              <linesegment length="0"
+              name="shape10.dragpoint2.lineseg2" orient="vertical"
+              x="1138.0" y="223.0" />
+              <linesegment length="39"
+              name="shape10.dragpoint2.lineseg3"
+              orient="horizontal" x="1138.0" y="223.0" />
+              <linesegment length="80"
+              name="shape10.dragpoint2.lineseg4" orient="vertical"
+              x="1177.0" y="223.0" />
+              <linesegment label="False" length="23"
+              name="shape10.dragpoint2.lineseg5"
+              orient="horizontal" x="1177.0" y="303.0" />
+            </dragpoint>
+          </dragpoints>
+        </shape>
+        <shape image="stop_icon" name="shape8" shapetype="stop"
+        userlabel="" x="1392.0" y="288.0">
+          <configuration>
+            <stop continue="true" />
+          </configuration>
+          <dragpoints />
+        </shape>
+        <shape image="stop_icon" name="shape9" shapetype="stop"
+        userlabel="" x="1216.0" y="208.0">
+          <configuration>
+            <stop continue="true" />
+          </configuration>
+          <dragpoints />
+        </shape>
+        <shape image="notify_icon" name="shape12"
+        shapetype="notify" userlabel="Customer failed to sync"
+        x="1216.0" y="288.0">
+          <configuration>
+            <notify disableEvent="false" enableUserLog="false"
+            perExecution="false"
+            title="Salesforce Account Failed to Sync">
+              <notifyMessage>Salesforce account "{1}" failed to
+              sync to NetSuite: ({2}) {3}</notifyMessage>
+              <notifyMessageLevel>WARNING</notifyMessageLevel>
+              <notifyParameters>
+                <parametervalue key="0" valueType="track">
+                  <trackparameter defaultValue=""
+                  propertyId="dynamicdocument.RECORD_NAME"
+                  propertyName="Dynamic Document Property - RECORD_NAME" />
+                </parametervalue>
+                <parametervalue key="1" valueType="track">
+                  <trackparameter defaultValue=""
+                  propertyId="meta.base.applicationstatuscode"
+                  propertyName="Base - Application Status Code" />
+                </parametervalue>
+                <parametervalue key="2" valueType="track">
+                  <trackparameter defaultValue=""
+                  propertyId="meta.base.applicationstatusmessage"
+                  propertyName="Base - Application Status Message" />
+                </parametervalue>
+              </notifyParameters>
+            </notify>
+          </configuration>
+          <dragpoints>
+            <dragpoint name="shape12.dragpoint1" toShape="shape8"
+            x="1376.0" y="297.0">
+              <linesegment length="0"
+              name="shape12.dragpoint1.lineseg1"
+              orient="horizontal" x="1250.0" y="303.0" />
+              <linesegment length="0"
+              name="shape12.dragpoint1.lineseg2" orient="vertical"
+              x="1250.0" y="303.0" />
+              <linesegment length="71"
+              name="shape12.dragpoint1.lineseg3"
+              orient="horizontal" x="1250.0" y="303.0" />
+              <linesegment length="0"
+              name="shape12.dragpoint1.lineseg4" orient="vertical"
+              x="1321.0" y="303.0" />
+              <linesegment length="55"
+              name="shape12.dragpoint1.lineseg5"
+              orient="horizontal" x="1321.0" y="303.0" />
+            </dragpoint>
+          </dragpoints>
+        </shape>
+        <shape image="documentproperties_icon" name="shape13"
+        shapetype="documentproperties" userlabel="Set Record Props"
+        x="304.0" y="208.0">
+          <configuration>
+            <documentproperties>
+              <documentproperty defaultValue=""
+              isTradingPartner="false"
+              name="Dynamic Document Property - RECORD_ID"
+              persist="false"
+              propertyId="dynamicdocument.RECORD_ID">
+                <sourcevalues>
+                  <parametervalue key="1" valueType="profile">
+                    <profileelement elementId="2"
+                    elementName="Id (Account/Id)"
+                    profileId="64641838-3648-4831-bf81-0bec87f2b3d6"
+                    profileType="profile.xml" />
+                  </parametervalue>
+                </sourcevalues>
+              </documentproperty>
+              <documentproperty defaultValue=""
+              isTradingPartner="false"
+              name="Dynamic Document Property - RECORD_NAME"
+              persist="false"
+              propertyId="dynamicdocument.RECORD_NAME">
+                <sourcevalues>
+                  <parametervalue key="2" valueType="profile">
+                    <profileelement elementId="4"
+                    elementName="Name (Account/Name)"
+                    profileId="64641838-3648-4831-bf81-0bec87f2b3d6"
+                    profileType="profile.xml" />
+                  </parametervalue>
+                </sourcevalues>
+              </documentproperty>
+            </documentproperties>
+          </configuration>
+          <dragpoints>
+            <dragpoint name="shape13.dragpoint1" toShape="shape15"
+            x="416.0" y="217.0">
+              <linesegment length="0"
+              name="shape13.dragpoint1.lineseg1"
+              orient="horizontal" x="338.0" y="223.0" />
+              <linesegment length="0"
+              name="shape13.dragpoint1.lineseg2" orient="vertical"
+              x="338.0" y="223.0" />
+              <linesegment length="47"
+              name="shape13.dragpoint1.lineseg3"
+              orient="horizontal" x="338.0" y="223.0" />
+              <linesegment length="0"
+              name="shape13.dragpoint1.lineseg4" orient="vertical"
+              x="385.0" y="223.0" />
+              <linesegment length="31"
+              name="shape13.dragpoint1.lineseg5"
+              orient="horizontal" x="385.0" y="223.0" />
+            </dragpoint>
+          </dragpoints>
+        </shape>
+        <shape image="documentproperties_icon" name="shape14"
+        shapetype="documentproperties"
+        userlabel="Init Process Config" x="160.0" y="208.0">
+          <configuration>
+            <documentproperties>
+              <documentproperty defaultValue=""
+              isTradingPartner="false"
+              name="Dynamic Process Property - DPP_LOG_FILE_WRITE"
+              persist="false"
+              propertyId="process.DPP_LOG_FILE_WRITE">
+                <sourcevalues>
+                  <parametervalue key="1"
+                  valueType="definedparameter">
+                    <definedprocessparameter componentId="de702c34-7079-4bb7-9c87-3c7d4f46ef27"
+                    componentName="SFDC Account Sync Config"
+                    propertyKey="b0415706-fafa-4961-990e-d7cd30c87fdf"
+                    propertyLabel="Write Errors to Log File" />
+                  </parametervalue>
+                </sourcevalues>
+              </documentproperty>
+              <documentproperty defaultValue=""
+              isTradingPartner="false"
+              name="Dynamic Process Property - DPP_LOG_FILE_DIR"
+              persist="false"
+              propertyId="process.DPP_LOG_FILE_DIR">
+                <sourcevalues>
+                  <parametervalue key="2"
+                  valueType="definedparameter">
+                    <definedprocessparameter componentId="de702c34-7079-4bb7-9c87-3c7d4f46ef27"
+                    componentName="SFDC Account Sync Config"
+                    propertyKey="198cdbcc-bf3a-432f-bd07-fc3a4434de82"
+                    propertyLabel="Log File Directory" />
+                  </parametervalue>
+                </sourcevalues>
+              </documentproperty>
+              <documentproperty defaultValue=""
+              isTradingPartner="false"
+              name="Dynamic Process Property - DPP_PROCESS_ALIAS"
+              persist="false"
+              propertyId="process.DPP_PROCESS_ALIAS">
+                <sourcevalues>
+                  <parametervalue key="3"
+                  valueType="definedparameter">
+                    <definedprocessparameter componentId="de702c34-7079-4bb7-9c87-3c7d4f46ef27"
+                    componentName="SFDC Account Sync Config"
+                    propertyKey="6c734ee3-37fe-4d34-b175-6a6c2d4b1fe6"
+                    propertyLabel="Process Alias" />
+                  </parametervalue>
+                </sourcevalues>
+              </documentproperty>
+              <documentproperty defaultValue=""
+              isTradingPartner="false"
+              name="Process Property - VAR Runtime Props - Has Error"
+              persist="false"
+              propertyId="definedprocess.bbb5d15c-2388-40c7-a450-9fb1dc9cef39@3d4b8a60-4191-40bf-91e6-618ffe366dff">
+
+                <sourcevalues>
+                  <parametervalue key="4"
+                  valueType="definedparameter">
+                    <definedprocessparameter componentId="84410d0b-db0c-45ba-936c-1e5cdf0997fc"
+                    componentName="CONST Global Values"
+                    propertyKey="d5af4b81-ebef-4684-9ade-b9d511cc5cce"
+                    propertyLabel="FALSE" />
+                  </parametervalue>
+                </sourcevalues>
+              </documentproperty>
+            </documentproperties>
+          </configuration>
+          <dragpoints>
+            <dragpoint name="shape14.dragpoint1" toShape="shape13"
+            x="288.0" y="217.0">
+              <linesegment length="0"
+              name="shape14.dragpoint1.lineseg1"
+              orient="horizontal" x="194.0" y="223.0" />
+              <linesegment length="0"
+              name="shape14.dragpoint1.lineseg2" orient="vertical"
+              x="194.0" y="223.0" />
+              <linesegment length="55"
+              name="shape14.dragpoint1.lineseg3"
+              orient="horizontal" x="194.0" y="223.0" />
+              <linesegment length="0"
+              name="shape14.dragpoint1.lineseg4" orient="vertical"
+              x="249.0" y="223.0" />
+              <linesegment length="39"
+              name="shape14.dragpoint1.lineseg5"
+              orient="horizontal" x="249.0" y="223.0" />
+            </dragpoint>
+          </dragpoints>
+        </shape>
+        <shape image="stop_icon" name="shape17" shapetype="stop"
+        userlabel="Never reached" x="496.0" y="320.0">
+          <configuration>
+            <stop continue="true" />
+          </configuration>
+          <dragpoints />
+        </shape>
+        <shape image="businessrules_icon" name="shape15"
+        shapetype="businessrules" userlabel="Capture Last Mod Date"
+        x="432.0" y="208.0">
+          <configuration>
+            <businessrules profileId="5f83c378-9e45-4168-a71f-ca93ddc4d239"
+            profileName="NetSuite 2014.2 Customer COMMON"
+            profileType="profile.xml">
+              <rule key="1" name="Store Last Mod Date">
+                <input xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                alias="Store Last Record Date" id="3"
+                xsi:type="BusinessRuleFunction">
+                  <inputMapping fromElementKey="0" fromTaglist="0"
+                  toFunctionInputKey="2" />
+                  <inputMapping fromElementKey="164"
+                  fromName="lastModifiedDate (Customer/lastModifiedDate)"
+                  fromTaglist="0" toFunctionInputKey="3" />
+                  <FunctionStep cacheEnabled="false"
+                  category="userdefined"
+                  id="57140dfa-44c6-4b1c-9a16-a09f31d8287f" key="3"
+                  name="Store Last Record Date (BR, PPC)"
+                  position="-1" type="userdefined">
+                    <Inputs>
+                      <Input default="" key="3" name="Value" />
+                      <Input default="yyyy-MM-dd'T'HH:mm:ss.SSSZZ"
+                      key="2" name="Output Date Format" />
+                    </Inputs>
+                    <Outputs>
+                      <Output key="1" name="Result" />
+                    </Outputs>
+                    <Configuration />
+                  </FunctionStep>
+                </input>
+                <condition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                operator="and" xsi:type="GroupingCondition">
+                  <nestedExpression operator="="
+                  xsi:type="SimpleCondition">
+                    <leftInput deleted="false" id="3"
+                    name="Store Last Record Date" outputId="1"
+                    xsi:type="FunctionConditionInput" />
+                    <rightInput deleted="false" id="0"
+                    name="&quot;true&quot;" value="true"
+                    xsi:type="StaticConditionInput" />
+                  </nestedExpression>
+                </condition>
+                <errorMessage />
+              </rule>
+            </businessrules>
+          </configuration>
+          <dragpoints>
+            <dragpoint identifier="Accepted"
+            name="shape15.dragpoint1" text="Accepted"
+            toShape="shape2" x="592.0" y="217.0">
+              <linesegment length="0"
+              name="shape15.dragpoint1.lineseg1"
+              orient="horizontal" x="466.0" y="223.0" />
+              <linesegment length="0"
+              name="shape15.dragpoint1.lineseg2" orient="vertical"
+              x="466.0" y="223.0" />
+              <linesegment length="71"
+              name="shape15.dragpoint1.lineseg3"
+              orient="horizontal" x="466.0" y="223.0" />
+              <linesegment length="0"
+              name="shape15.dragpoint1.lineseg4" orient="vertical"
+              x="537.0" y="223.0" />
+              <linesegment label="Accepted" length="55"
+              name="shape15.dragpoint1.lineseg5"
+              orient="horizontal" x="537.0" y="223.0" />
+            </dragpoint>
+            <dragpoint identifier="Rejected"
+            name="shape15.dragpoint2" text="Rejected"
+            toShape="shape17" x="480.0" y="329.0">
+              <linesegment length="0"
+              name="shape15.dragpoint2.lineseg1"
+              orient="horizontal" x="466.0" y="223.0" />
+              <linesegment length="0"
+              name="shape15.dragpoint2.lineseg2" orient="vertical"
+              x="466.0" y="223.0" />
+              <linesegment length="15"
+              name="shape15.dragpoint2.lineseg3"
+              orient="horizontal" x="466.0" y="223.0" />
+              <linesegment length="112"
+              name="shape15.dragpoint2.lineseg4" orient="vertical"
+              x="481.0" y="223.0" />
+              <linesegment label="Rejected" length="-1"
+              name="shape15.dragpoint2.lineseg5"
+              orient="horizontal" x="481.0" y="335.0" />
+            </dragpoint>
+          </dragpoints>
+        </shape>
+        <shape image="stop_icon" name="shape18" shapetype="stop"
+        userlabel="" x="976.0" y="352.0">
+          <configuration>
+            <stop continue="true" />
+          </configuration>
+          <dragpoints />
+        </shape>
+        <shape image="exception_icon" name="shape19"
+        shapetype="exception"
+        userlabel="Error Syncing SFDC Accounts to SFDC" x="816.0"
+        y="432.0">
+          <configuration>
+            <exception stopsingledoc="false"
+            title="Error Syncing SFDC Accounts to SFDC">
+              <exMessage>There was an error syncing customers.
+              Please see the Process Log for details.</exMessage>
+              <exParameters />
+            </exception>
+          </configuration>
+          <dragpoints />
+        </shape>
+        <shape image="decision_icon" name="shape20"
+        shapetype="decision" userlabel="No Errors?" x="720.0"
+        y="352.0">
+          <configuration>
+            <decision comparison="notequals" name="No Errors?">
+              <decisionvalue valueType="definedparameter">
+                <definedprocessparameter componentId="bbb5d15c-2388-40c7-a450-9fb1dc9cef39"
+                componentName="VAR Runtime Props"
+                propertyKey="3d4b8a60-4191-40bf-91e6-618ffe366dff"
+                propertyLabel="HAS_ERROR" />
+              </decisionvalue>
+              <decisionvalue valueType="definedparameter">
+                <definedprocessparameter componentId="84410d0b-db0c-45ba-936c-1e5cdf0997fc"
+                componentName="CONST Global Values"
+                propertyKey="4841a681-37d8-4678-96be-43357fb099bf"
+                propertyLabel="TRUE" />
+              </decisionvalue>
+            </decision>
+          </configuration>
+          <dragpoints>
+            <dragpoint identifier="true" name="shape20.dragpoint1"
+            text="True" toShape="shape21" x="800.0" y="361.0">
+              <linesegment length="0"
+              name="shape20.dragpoint1.lineseg1"
+              orient="horizontal" x="754.0" y="367.0" />
+              <linesegment length="0"
+              name="shape20.dragpoint1.lineseg2" orient="vertical"
+              x="754.0" y="367.0" />
+              <linesegment length="31"
+              name="shape20.dragpoint1.lineseg3"
+              orient="horizontal" x="754.0" y="367.0" />
+              <linesegment length="0"
+              name="shape20.dragpoint1.lineseg4" orient="vertical"
+              x="785.0" y="367.0" />
+              <linesegment label="True" length="15"
+              name="shape20.dragpoint1.lineseg5"
+              orient="horizontal" x="785.0" y="367.0" />
+            </dragpoint>
+            <dragpoint identifier="false" name="shape20.dragpoint2"
+            text="False" toShape="shape19" x="800.0" y="441.0">
+              <linesegment length="0"
+              name="shape20.dragpoint2.lineseg1"
+              orient="horizontal" x="754.0" y="367.0" />
+              <linesegment length="0"
+              name="shape20.dragpoint2.lineseg2" orient="vertical"
+              x="754.0" y="367.0" />
+              <linesegment length="31"
+              name="shape20.dragpoint2.lineseg3"
+              orient="horizontal" x="754.0" y="367.0" />
+              <linesegment length="80"
+              name="shape20.dragpoint2.lineseg4" orient="vertical"
+              x="785.0" y="367.0" />
+              <linesegment label="False" length="15"
+              name="shape20.dragpoint2.lineseg5"
+              orient="horizontal" x="785.0" y="447.0" />
+            </dragpoint>
+          </dragpoints>
+        </shape>
+        <shape image="documentproperties_icon" name="shape21"
+        shapetype="documentproperties"
+        userlabel="Persist Last Record Date" x="816.0" y="352.0">
+          <configuration>
+            <documentproperties>
+              <documentproperty defaultValue=""
+              isTradingPartner="false"
+              name="Process Property - SFDC Account Sync Config - Last Record Date"
+              persist="false"
+              propertyId="definedprocess.de702c34-7079-4bb7-9c87-3c7d4f46ef27@a3db9581-316d-41be-9b9d-6c0e70935cce">
+
+                <sourcevalues>
+                  <parametervalue key="1"
+                  valueType="definedparameter">
+                    <definedprocessparameter componentId="bbb5d15c-2388-40c7-a450-9fb1dc9cef39"
+                    componentName="VAR Runtime Props"
+                    propertyKey="35ae7d38-d01f-4043-ad63-1fda5f952051"
+                    propertyLabel="Last Record Date" />
+                  </parametervalue>
+                </sourcevalues>
+              </documentproperty>
+            </documentproperties>
+          </configuration>
+          <dragpoints>
+            <dragpoint name="shape21.dragpoint1" toShape="shape18"
+            x="960.0" y="361.0">
+              <linesegment length="0"
+              name="shape21.dragpoint1.lineseg1"
+              orient="horizontal" x="850.0" y="367.0" />
+              <linesegment length="0"
+              name="shape21.dragpoint1.lineseg2" orient="vertical"
+              x="850.0" y="367.0" />
+              <linesegment length="63"
+              name="shape21.dragpoint1.lineseg3"
+              orient="horizontal" x="850.0" y="367.0" />
+              <linesegment length="0"
+              name="shape21.dragpoint1.lineseg4" orient="vertical"
+              x="913.0" y="367.0" />
+              <linesegment length="47"
+              name="shape21.dragpoint1.lineseg5"
+              orient="horizontal" x="913.0" y="367.0" />
+            </dragpoint>
+          </dragpoints>
+        </shape>
+      </shapes>
+    </process>
+  </Object>
+  <Overrides allowScheduleOverride="false">
+    <Connections>
+      <ConnectionOverride id="3d5ca9b7-efca-42b3-8eef-2f3c7549d4ea">
+
+        <field id="url" label="URL" overrideable="false" />
+        <field id="user" label="User" overrideable="false" />
+        <field id="password" label="Password"
+        overrideable="false" />
+        <field id="accountNumber" label="Account Number"
+        overrideable="false" />
+        <field id="version" label="Version" overrideable="false" />
+        <field id="numRetries" label="Number of Retries"
+        overrideable="false" />
+        <field id="maxConnections"
+        label="Maximum Number of Concurrent Connections"
+        overrideable="false" />
+      </ConnectionOverride>
+      <ConnectionOverride id="e878595d-5627-476c-9eac-b7cbe0f4d216">
+
+        <field id="url" label="URL" xpath="SalesforceSettings/@url"
+        overrideable="true" />
+        <field id="user" label="User"
+        xpath="SalesforceSettings/AuthSettings/@user"
+        overrideable="true" />
+        <field id="password" label="Password"
+        xpath="SalesforceSettings/AuthSettings/@password"
+        overrideable="true" />
+      </ConnectionOverride>
+    </Connections>
+    <PartnerOverrides />
+    <Properties />
+    <Extensions>
+      <ObjectDefinitions>
+        <objectDefinition connectionId="3d5ca9b7-efca-42b3-8eef-2f3c7549d4ea"
+        connectorType="netsuitesdk"
+        objectType="Customer-upsert-listsRelationships"
+        name="NetSuite Customer-upsert-listsRelationships (Adam SDN Oneworld 2014.2)"
+        id="3d5ca9b7-efca-42b3-8eef-2f3c7549d4eaCustomer-upsert-listsRelationships"
+        userDefined="false">
+          <profiles>
+            <profile operationId="bcc91f57-fc0a-4325-888e-8efc1693fab3"
+            operationType="UPSERT"
+            operationProfilePath="//GenericOperationConfig/@requestProfile"
+            operationProfileRole="input"
+            name="NetSuite 2014.2 Customer COMMON"
+            type="profile.xml"
+            id="57ddc04e-8f56-4725-bd13-9760f3e643ca" />
+          </profiles>
+        </objectDefinition>
+        <objectDefinition connectionId="3d5ca9b7-efca-42b3-8eef-2f3c7549d4ea"
+        connectorType="netsuitesdk"
+        objectType="Subsidiary-search-listsAccounting"
+        name="NetSuite Subsidiary-search-listsAccounting (Adam SDN Oneworld 2014.2)"
+        id="3d5ca9b7-efca-42b3-8eef-2f3c7549d4eaSubsidiary-search-listsAccounting"
+        userDefined="false">
+          <profiles>
+            <profile operationId="4b03ded0-83c6-4b42-b189-8e0956530107"
+            operationType="QUERY"
+            operationProfilePath="//GenericOperationConfig/@responseProfile"
+            operationProfileRole="output"
+            name="NetSuite Subsidiary QUERY Response 2014.2"
+            type="profile.xml"
+            id="4c6663a7-114a-40f2-ad27-6a36eb2571d1" />
+          </profiles>
+        </objectDefinition>
+        <objectDefinition connectionId="e878595d-5627-476c-9eac-b7cbe0f4d216"
+        connectorType="salesforce" objectType="Account"
+        name="Salesforce Account (SFDC Org (boomiadam))"
+        id="e878595d-5627-476c-9eac-b7cbe0f4d216Account"
+        userDefined="false">
+          <profiles>
+            <profile operationId="ebb40608-9c14-4bbf-907d-ec3e7a9d7bf0"
+            operationType="query"
+            operationProfilePath="//SalesforceGetAction/@responseProfile"
+            operationProfileRole="output"
+            name="SF_Account_QUERY_Response (full)"
+            type="profile.xml"
+            id="15dc4ec3-2542-4f6c-9036-bdda1c663bc7" />
+          </profiles>
+        </objectDefinition>
+        <unusedProfiles />
+      </ObjectDefinitions>
+      <DataMaps>
+        <unusedMaps />
+      </DataMaps>
+    </Extensions>
+    <CrossReferenceOverrides />
+    <PGPOverrides />
+    <DefinedProcessPropertyOverrides />
+  </Overrides>
+</Component>

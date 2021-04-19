@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Component xmlns:ns2="http://www.boomi.com/connector/annotation"
+xmlns:ns3="http://exacttarget.com/wsdl/partnerAPI"
+xmlns:ns4="urn:fault.partner.exacttarget.com"
+xmlns:ns5="http://schemas.boomi.com/sap/edi_dc40"
+xmlns:ns6="http://schemas.microsoft.com/2003/10/Serialization/"
+deleted="false">
+  <Id>bbb5d15c-2388-40c7-a450-9fb1dc9cef39</Id>
+  <Type>processproperty</Type>
+  <Name>VAR Runtime Props</Name>
+  <Version>1</Version>
+  <FolderId name="Training-P-Chakraborty/Certification">
+  2400156</FolderId>
+  <AccountId>trainingpchakraborty-XJQZPO</AccountId>
+  <Properties />
+  <References />
+  <Description />
+  <Object>
+    <DefinedProcessProperties>
+      <definedProcessProperty key="3d4b8a60-4191-40bf-91e6-618ffe366dff">
+
+        <helpText />
+        <label>Has Error</label>
+        <type>boolean</type>
+        <defaultValue>false</defaultValue>
+        <allowedValues />
+        <persisted>false</persisted>
+      </definedProcessProperty>
+      <definedProcessProperty key="35ae7d38-d01f-4043-ad63-1fda5f952051">
+
+        <helpText />
+        <label>Last Record Date</label>
+        <type>string</type>
+        <defaultValue />
+        <allowedValues />
+        <persisted>false</persisted>
+      </definedProcessProperty>
+    </DefinedProcessProperties>
+  </Object>
+</Component>
