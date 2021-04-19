@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Component xmlns:ns2="http://www.boomi.com/connector/annotation"
+xmlns:ns3="http://exacttarget.com/wsdl/partnerAPI"
+xmlns:ns4="urn:fault.partner.exacttarget.com"
+xmlns:ns5="http://schemas.boomi.com/sap/edi_dc40"
+xmlns:ns6="http://schemas.microsoft.com/2003/10/Serialization/"
+deleted="false">
+  <Id>ee60fb04-defc-4242-8560-a4f4b931431b</Id>
+  <Type>connector-settings</Type>
+  <Name>NetSuite 2016.1 2</Name>
+  <Version>1</Version>
+  <FolderId name="Training-P-Chakraborty/Certification">
+  2400156</FolderId>
+  <AccountId>trainingpchakraborty-XJQZPO</AccountId>
+  <Properties>
+    <Property>
+      <Name>connector-type</Name>
+      <Value>netsuitesdk</Value>
+    </Property>
+  </Properties>
+  <References />
+  <Description />
+  <Object>
+    <GenericConnectionConfig>
+      <field id="url" type="string"
+      value="https://webservices.netsuite.com/services/NetSuitePort_2016_1" />
+      <field id="user" type="string" value="USER_NAME" />
+      <field id="password" type="password" />
+      <field id="accountNumber" type="string"
+      value="ACCOUNT_NUMBER" />
+      <field id="consumerKey" type="string" value="" />
+      <field id="consumerSecret" type="string" value="" />
+      <field id="tokenId" type="string" value="" />
+      <field id="tokenSecret" type="string" value="" />
+      <field id="applicationId" type="string"
+      value="NETSUITE_ACCOUNT_ID" />
+      <field id="version" type="string" value="v2016_1_0" />
+      <field id="numRetries" type="integer" value="0" />
+      <field id="maxConnections" type="integer" value="1" />
+    </GenericConnectionConfig>
+  </Object>
+</Component>

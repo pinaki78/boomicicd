@@ -1,0 +1,367 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Component xmlns:ns2="http://www.boomi.com/connector/annotation"
+xmlns:ns3="http://exacttarget.com/wsdl/partnerAPI"
+xmlns:ns4="urn:fault.partner.exacttarget.com"
+xmlns:ns5="http://schemas.boomi.com/sap/edi_dc40"
+xmlns:ns6="http://schemas.microsoft.com/2003/10/Serialization/">
+  <Id>ebb40608-9c14-4bbf-907d-ec3e7a9d7bf0</Id>
+  <Type>connector-action</Type>
+  <Name>Account Query by Last Mod Date (full)</Name>
+  <Version>1</Version>
+  <FolderId name="Training-P-Chakraborty/Certification">
+  2400156</FolderId>
+  <AccountId>trainingpchakraborty-XJQZPO</AccountId>
+  <Properties>
+    <Property>
+      <Name>connector-type</Name>
+      <Value>salesforce</Value>
+    </Property>
+    <Property>
+      <Name>action-type</Name>
+      <Value>Get</Value>
+    </Property>
+    <Property>
+      <Name>output-profile</Name>
+      <Value>15dc4ec3-2542-4f6c-9036-bdda1c663bc7</Value>
+    </Property>
+    <Property>
+      <Name>parameter-profile</Name>
+      <Value>EMBEDDED|salesforceparameterchooser</Value>
+    </Property>
+  </Properties>
+  <References>
+    <Ref compId="15dc4ec3-2542-4f6c-9036-bdda1c663bc7"
+    refId="response-profile"
+    name="SF_Account_QUERY_Response (full)" />
+  </References>
+  <Description />
+  <Object>
+    <Operation>
+      <Archiving directory="" enabled="false" />
+      <Configuration>
+        <SalesforceGetAction objectAction="query"
+        objectName="Account"
+        responseProfile="15dc4ec3-2542-4f6c-9036-bdda1c663bc7">
+          <Options>
+            <QueryOptions batchResults="false" limitSize="-1"
+            useQueryAll="false">
+              <Fields>
+                <SalesforceObject checkable="false"
+                externalIdField="Choose..." import="true" level="0"
+                name="Account" objectAction="query"
+                objectType="Account">
+                  <FieldList name="FieldList">
+                    <SalesforceField custom="false"
+                    dataType="character" fEnabled="true"
+                    name="Id" />
+                    <SalesforceField custom="false"
+                    dataType="boolean" fEnabled="true"
+                    name="IsDeleted" />
+                    <SalesforceField custom="false"
+                    dataType="character" fEnabled="true"
+                    name="MasterRecordId" />
+                    <SalesforceField custom="false"
+                    dataType="character" fEnabled="true"
+                    name="Name" />
+                    <SalesforceField custom="false"
+                    dataType="character" fEnabled="true"
+                    name="Type" />
+                    <SalesforceField custom="false"
+                    dataType="character" fEnabled="true"
+                    name="ParentId" />
+                    <SalesforceField custom="false"
+                    dataType="character" fEnabled="true"
+                    name="BillingStreet" />
+                    <SalesforceField custom="false"
+                    dataType="character" fEnabled="true"
+                    name="BillingCity" />
+                    <SalesforceField custom="false"
+                    dataType="character" fEnabled="true"
+                    name="BillingState" />
+                    <SalesforceField custom="false"
+                    dataType="character" fEnabled="true"
+                    name="BillingPostalCode" />
+                    <SalesforceField custom="false"
+                    dataType="character" fEnabled="true"
+                    name="BillingCountry" />
+                    <SalesforceField custom="false"
+                    dataType="character" fEnabled="true"
+                    name="ShippingStreet" />
+                    <SalesforceField custom="false"
+                    dataType="character" fEnabled="true"
+                    name="ShippingCity" />
+                    <SalesforceField custom="false"
+                    dataType="character" fEnabled="true"
+                    name="ShippingState" />
+                    <SalesforceField custom="false"
+                    dataType="character" fEnabled="true"
+                    name="ShippingPostalCode" />
+                    <SalesforceField custom="false"
+                    dataType="character" fEnabled="true"
+                    name="ShippingCountry" />
+                    <SalesforceField custom="false"
+                    dataType="character" fEnabled="true"
+                    name="Phone" />
+                    <SalesforceField custom="false"
+                    dataType="character" fEnabled="true"
+                    name="Fax" />
+                    <SalesforceField custom="false"
+                    dataType="character" fEnabled="true"
+                    name="AccountNumber" />
+                    <SalesforceField custom="false"
+                    dataType="character" fEnabled="true"
+                    name="Website" />
+                    <SalesforceField custom="false"
+                    dataType="character" fEnabled="true"
+                    name="Sic" />
+                    <SalesforceField custom="false"
+                    dataType="character" fEnabled="true"
+                    name="Industry" />
+                    <SalesforceField custom="false"
+                    dataType="character" fEnabled="true"
+                    name="AnnualRevenue" />
+                    <SalesforceField custom="false"
+                    dataType="number" fEnabled="true"
+                    name="NumberOfEmployees" />
+                    <SalesforceField custom="false"
+                    dataType="character" fEnabled="true"
+                    name="Ownership" />
+                    <SalesforceField custom="false"
+                    dataType="character" fEnabled="true"
+                    name="TickerSymbol" />
+                    <SalesforceField custom="false"
+                    dataType="character" fEnabled="true"
+                    name="Description" />
+                    <SalesforceField custom="false"
+                    dataType="character" fEnabled="true"
+                    name="Rating" />
+                    <SalesforceField custom="false"
+                    dataType="character" fEnabled="true"
+                    name="Site" />
+                    <SalesforceField custom="false"
+                    dataType="character" fEnabled="true"
+                    name="OwnerId" />
+                    <SalesforceField custom="false"
+                    dataType="datetime" fEnabled="true"
+                    name="CreatedDate" />
+                    <SalesforceField custom="false"
+                    dataType="character" fEnabled="true"
+                    name="CreatedById" />
+                    <SalesforceField custom="false"
+                    dataType="datetime" fEnabled="true"
+                    name="LastModifiedDate" />
+                    <SalesforceField custom="false"
+                    dataType="character" fEnabled="true"
+                    name="LastModifiedById" />
+                    <SalesforceField custom="false"
+                    dataType="datetime" fEnabled="true"
+                    name="SystemModstamp" />
+                    <SalesforceField custom="false"
+                    dataType="character" fEnabled="true"
+                    name="LastActivityDate" />
+                    <SalesforceField custom="false"
+                    dataType="character" fEnabled="true"
+                    name="bod__SLAExpirationDate__c" />
+                    <SalesforceField custom="true"
+                    dataType="character" fEnabled="true"
+                    name="bod__SLASerialNumber__c" />
+                    <SalesforceField custom="false"
+                    dataType="number" fEnabled="true"
+                    name="bod__NumberofLocations__c" />
+                    <SalesforceField custom="false"
+                    dataType="character" fEnabled="true"
+                    name="bod__SLA__c" />
+                    <SalesforceField custom="false"
+                    dataType="character" fEnabled="true"
+                    name="bod__CustomerPriority__c" />
+                    <SalesforceField custom="false"
+                    dataType="character" fEnabled="true"
+                    name="bod__UpsellOpportunity__c" />
+                    <SalesforceField custom="false"
+                    dataType="character" fEnabled="true"
+                    name="bod__Active__c" />
+                    <SalesforceField custom="true"
+                    dataType="character" fEnabled="true"
+                    name="bod__External_Customer_ID__c" />
+                  </FieldList>
+                  <Filter>
+                    <SalesforceFilterLogical isRoot="true"
+                    logicalOperator="and">
+                      <SalesforceFilterExpression dataType="datetime"
+                      expressionField="LastModifiedDate"
+                      expressionOperator="greaterthan" key="1"
+                      name="Last Mod Date &gt;" />
+                    </SalesforceFilterLogical>
+                  </Filter>
+                  <Sorts>
+                    <SalesforceSortField fieldName="ParentId"
+                    key="1" sortNulls="FIRST" sortOrder="ASC" />
+                  </Sorts>
+                  <SalesforceObject checkable="false" import="true"
+                  level="0" name="Child Objects"
+                  objectAction="query" objectType="childObjects" />
+                  <SalesforceObject checkable="false" import="true"
+                  level="0" name="Parent Objects"
+                  objectAction="query" objectType="parentObjects">
+                    <SalesforceObject checkable="true"
+                    externalIdField="Choose..." import="true"
+                    level="-1" name="Parent" objectAction="query"
+                    objectType="Account"
+                    relationshipField="ParentId">
+                      <FieldList name="FieldList">
+                        <SalesforceField custom="false"
+                        dataType="character" fEnabled="true"
+                        name="Id" />
+                        <SalesforceField custom="false"
+                        dataType="boolean" fEnabled="true"
+                        name="IsDeleted" />
+                        <SalesforceField custom="false"
+                        dataType="character" fEnabled="true"
+                        name="MasterRecordId" />
+                        <SalesforceField custom="false"
+                        dataType="character" fEnabled="true"
+                        name="Name" />
+                        <SalesforceField custom="false"
+                        dataType="character" fEnabled="true"
+                        name="Type" />
+                        <SalesforceField custom="false"
+                        dataType="character" fEnabled="true"
+                        name="ParentId" />
+                        <SalesforceField custom="false"
+                        dataType="character" fEnabled="true"
+                        name="BillingStreet" />
+                        <SalesforceField custom="false"
+                        dataType="character" fEnabled="true"
+                        name="BillingCity" />
+                        <SalesforceField custom="false"
+                        dataType="character" fEnabled="true"
+                        name="BillingState" />
+                        <SalesforceField custom="false"
+                        dataType="character" fEnabled="true"
+                        name="BillingPostalCode" />
+                        <SalesforceField custom="false"
+                        dataType="character" fEnabled="true"
+                        name="BillingCountry" />
+                        <SalesforceField custom="false"
+                        dataType="character" fEnabled="true"
+                        name="ShippingStreet" />
+                        <SalesforceField custom="false"
+                        dataType="character" fEnabled="true"
+                        name="ShippingCity" />
+                        <SalesforceField custom="false"
+                        dataType="character" fEnabled="true"
+                        name="ShippingState" />
+                        <SalesforceField custom="false"
+                        dataType="character" fEnabled="true"
+                        name="ShippingPostalCode" />
+                        <SalesforceField custom="false"
+                        dataType="character" fEnabled="true"
+                        name="ShippingCountry" />
+                        <SalesforceField custom="false"
+                        dataType="character" fEnabled="true"
+                        name="Phone" />
+                        <SalesforceField custom="false"
+                        dataType="character" fEnabled="true"
+                        name="Fax" />
+                        <SalesforceField custom="false"
+                        dataType="character" fEnabled="true"
+                        name="AccountNumber" />
+                        <SalesforceField custom="false"
+                        dataType="character" fEnabled="true"
+                        name="Website" />
+                        <SalesforceField custom="false"
+                        dataType="character" fEnabled="true"
+                        name="Sic" />
+                        <SalesforceField custom="false"
+                        dataType="character" fEnabled="true"
+                        name="Industry" />
+                        <SalesforceField custom="false"
+                        dataType="character" fEnabled="true"
+                        name="AnnualRevenue" />
+                        <SalesforceField custom="false"
+                        dataType="number" fEnabled="true"
+                        name="NumberOfEmployees" />
+                        <SalesforceField custom="false"
+                        dataType="character" fEnabled="true"
+                        name="Ownership" />
+                        <SalesforceField custom="false"
+                        dataType="character" fEnabled="true"
+                        name="TickerSymbol" />
+                        <SalesforceField custom="false"
+                        dataType="character" fEnabled="true"
+                        name="Description" />
+                        <SalesforceField custom="false"
+                        dataType="character" fEnabled="true"
+                        name="Rating" />
+                        <SalesforceField custom="false"
+                        dataType="character" fEnabled="true"
+                        name="Site" />
+                        <SalesforceField custom="false"
+                        dataType="character" fEnabled="true"
+                        name="OwnerId" />
+                        <SalesforceField custom="false"
+                        dataType="datetime" fEnabled="true"
+                        name="CreatedDate" />
+                        <SalesforceField custom="false"
+                        dataType="character" fEnabled="true"
+                        name="CreatedById" />
+                        <SalesforceField custom="false"
+                        dataType="datetime" fEnabled="true"
+                        name="LastModifiedDate" />
+                        <SalesforceField custom="false"
+                        dataType="character" fEnabled="true"
+                        name="LastModifiedById" />
+                        <SalesforceField custom="false"
+                        dataType="datetime" fEnabled="true"
+                        name="SystemModstamp" />
+                        <SalesforceField custom="false"
+                        dataType="character" fEnabled="true"
+                        name="LastActivityDate" />
+                        <SalesforceField custom="false"
+                        dataType="character" fEnabled="true"
+                        name="bod__SLAExpirationDate__c" />
+                        <SalesforceField custom="true"
+                        dataType="character" fEnabled="true"
+                        name="bod__SLASerialNumber__c" />
+                        <SalesforceField custom="false"
+                        dataType="number" fEnabled="true"
+                        name="bod__NumberofLocations__c" />
+                        <SalesforceField custom="false"
+                        dataType="character" fEnabled="true"
+                        name="bod__SLA__c" />
+                        <SalesforceField custom="false"
+                        dataType="character" fEnabled="true"
+                        name="bod__CustomerPriority__c" />
+                        <SalesforceField custom="false"
+                        dataType="character" fEnabled="true"
+                        name="bod__UpsellOpportunity__c" />
+                        <SalesforceField custom="false"
+                        dataType="character" fEnabled="true"
+                        name="bod__Active__c" />
+                        <SalesforceField custom="true"
+                        dataType="character" fEnabled="true"
+                        name="bod__External_Customer_ID__c" />
+                      </FieldList>
+                      <Filter>
+                        <SalesforceFilterLogical isRoot="true"
+                        logicalOperator="and" />
+                      </Filter>
+                      <Sorts />
+                    </SalesforceObject>
+                  </SalesforceObject>
+                </SalesforceObject>
+              </Fields>
+              <Inputs>
+                <Input key="1" name="Last Mod Date &gt;" />
+              </Inputs>
+            </QueryOptions>
+          </Options>
+        </SalesforceGetAction>
+      </Configuration>
+      <Tracking>
+        <TrackedFields />
+      </Tracking>
+      <Caching />
+    </Operation>
+  </Object>
+</Component>

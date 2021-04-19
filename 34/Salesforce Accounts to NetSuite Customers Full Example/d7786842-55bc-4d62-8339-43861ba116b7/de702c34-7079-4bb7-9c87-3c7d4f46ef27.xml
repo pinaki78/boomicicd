@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Component xmlns:ns2="http://www.boomi.com/connector/annotation"
+xmlns:ns3="http://exacttarget.com/wsdl/partnerAPI"
+xmlns:ns4="urn:fault.partner.exacttarget.com"
+xmlns:ns5="http://schemas.boomi.com/sap/edi_dc40"
+xmlns:ns6="http://schemas.microsoft.com/2003/10/Serialization/"
+deleted="false">
+  <Id>de702c34-7079-4bb7-9c87-3c7d4f46ef27</Id>
+  <Type>processproperty</Type>
+  <Name>SFDC Account Sync Config</Name>
+  <Version>1</Version>
+  <FolderId name="Training-P-Chakraborty/Certification">
+  2400156</FolderId>
+  <AccountId>trainingpchakraborty-XJQZPO</AccountId>
+  <Properties />
+  <References />
+  <Description />
+  <Object>
+    <DefinedProcessProperties>
+      <definedProcessProperty key="a3db9581-316d-41be-9b9d-6c0e70935cce">
+
+        <helpText />
+        <label>Last Record Date</label>
+        <type>string</type>
+        <defaultValue>2016-07-01T00:00:00.000-0800</defaultValue>
+        <allowedValues />
+        <persisted>true</persisted>
+      </definedProcessProperty>
+      <definedProcessProperty key="b0415706-fafa-4961-990e-d7cd30c87fdf">
+
+        <helpText />
+        <label>Write Errors to Log File</label>
+        <type>string</type>
+        <defaultValue>TRUE</defaultValue>
+        <allowedValues>
+          <allowedValueSet label="TRUE" value="TRUE" />
+          <allowedValueSet label="FALSE" value="FALSE" />
+        </allowedValues>
+        <persisted>false</persisted>
+      </definedProcessProperty>
+      <definedProcessProperty key="198cdbcc-bf3a-432f-bd07-fc3a4434de82">
+
+        <helpText />
+        <label>Log File Directory</label>
+        <type>string</type>
+        <defaultValue />
+        <allowedValues />
+        <persisted>false</persisted>
+      </definedProcessProperty>
+      <definedProcessProperty key="6c734ee3-37fe-4d34-b175-6a6c2d4b1fe6">
+
+        <helpText />
+        <label>Process Alias</label>
+        <type>string</type>
+        <defaultValue>SFDC-CUST-NS</defaultValue>
+        <allowedValues />
+        <persisted>false</persisted>
+      </definedProcessProperty>
+    </DefinedProcessProperties>
+  </Object>
+</Component>

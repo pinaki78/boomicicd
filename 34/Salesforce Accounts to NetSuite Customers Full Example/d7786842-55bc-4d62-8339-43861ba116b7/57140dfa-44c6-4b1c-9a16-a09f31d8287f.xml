@@ -1,0 +1,138 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Component xmlns:ns2="http://www.boomi.com/connector/annotation"
+xmlns:ns3="http://exacttarget.com/wsdl/partnerAPI"
+xmlns:ns4="urn:fault.partner.exacttarget.com"
+xmlns:ns5="http://schemas.boomi.com/sap/edi_dc40"
+xmlns:ns6="http://schemas.microsoft.com/2003/10/Serialization/"
+deleted="false">
+  <Id>57140dfa-44c6-4b1c-9a16-a09f31d8287f</Id>
+  <Type>transform.function</Type>
+  <Name>Store Last Record Date (BR, PPC)</Name>
+  <Version>1</Version>
+  <FolderId name="Training-P-Chakraborty/Certification">
+  2400156</FolderId>
+  <AccountId>trainingpchakraborty-XJQZPO</AccountId>
+  <Properties />
+  <References>
+    <Ref compId="bbb5d15c-2388-40c7-a450-9fb1dc9cef39"
+    refId="function-5-processproperty" name="VAR Runtime Props" />
+    <Ref compId="bbb5d15c-2388-40c7-a450-9fb1dc9cef39"
+    refId="function-6-processproperty" name="VAR Runtime Props" />
+  </References>
+  <Description />
+  <Object>
+    <Function>
+      <Inputs>
+        <Input key="3" name="Value" />
+        <Input key="2" name="Output Date Format" />
+      </Inputs>
+      <Outputs>
+        <Output key="1" name="Result" />
+      </Outputs>
+      <Steps>
+        <FunctionStep cacheEnabled="true" category="Date" key="1"
+        name="Date Format" position="2" sumEnabled="false"
+        type="DateFormat" x="68.0" y="186.0">
+          <Inputs>
+            <Input default="" key="1" name="Date String" />
+            <Input default="yyyyMMdd HHmmss.SSS" key="2"
+            name="Input Mask" />
+            <Input default="yyyyMMdd HHmmss.SSS" key="3"
+            name="Output Mask" />
+          </Inputs>
+          <Outputs>
+            <Output key="2" name="Result" />
+          </Outputs>
+          <Configuration />
+        </FunctionStep>
+        <FunctionStep cacheEnabled="true" category="Scripting"
+        key="4" name="Embedded Scripting" position="3"
+        sumEnabled="false" type="Scripting" x="331.0" y="173.0">
+          <Inputs>
+            <Input default="" key="2" name="propval" />
+            <Input default="" key="3" name="thisval" />
+          </Inputs>
+          <Outputs>
+            <Output key="1" name="result" />
+            <Output key="4" name="bizresult" />
+          </Outputs>
+          <Configuration>
+            <Scripting language="groovy">
+              <ScriptToExecute>if (propval != "" &amp;&amp; propval
+              &gt; thisval) { result = propval; } else { result =
+              thisval; } bizresult="true";</ScriptToExecute>
+              <Input dataType="character" index="2"
+              name="propval" />
+              <Input dataType="character" index="3"
+              name="thisval" />
+              <Output dataType="undefined" index="1"
+              name="result" />
+              <Output index="4" name="bizresult" />
+            </Scripting>
+          </Configuration>
+        </FunctionStep>
+        <FunctionStep cacheEnabled="true"
+        category="ProcessProperty" key="5"
+        name="Get Process Property" position="1" sumEnabled="false"
+        type="DefinedProcessPropertyGet" x="29.0" y="73.0">
+          <Inputs />
+          <Outputs>
+            <Output key="1" name="LAST_RECORD_DATE" />
+          </Outputs>
+          <Configuration>
+            <DefinedProcessProperty componentId="bbb5d15c-2388-40c7-a450-9fb1dc9cef39"
+            componentName="VAR Runtime Props"
+            propertyKey="35ae7d38-d01f-4043-ad63-1fda5f952051"
+            propertyName="LAST_RECORD_DATE" />
+          </Configuration>
+        </FunctionStep>
+        <FunctionStep cacheEnabled="true"
+        category="ProcessProperty" key="6"
+        name="Set Process Property" position="4" sumEnabled="false"
+        type="DefinedProcessPropertySet" x="582.0" y="200.0">
+          <Inputs>
+            <Input key="1" name="LAST_RECORD_DATE" />
+          </Inputs>
+          <Outputs />
+          <Configuration>
+            <DefinedProcessProperty componentId="bbb5d15c-2388-40c7-a450-9fb1dc9cef39"
+            componentName="VAR Runtime Props"
+            propertyKey="35ae7d38-d01f-4043-ad63-1fda5f952051"
+            propertyName="LAST_RECORD_DATE" />
+          </Configuration>
+        </FunctionStep>
+      </Steps>
+      <Mappings>
+        <Mapping fromFunction="1" fromKey="2" fromKeyPath="null"
+        fromNamePath="Date Format/Result" fromTagListKey="null"
+        fromType="function" toFunction="4" toKey="3"
+        toKeyPath="null" toNamePath="Embedded Scripting/thisval"
+        toTagListKey="null" toType="function" />
+        <Mapping fromFunction="4" fromKey="1"
+        fromNamePath="Embedded Scripting/result"
+        fromType="function" toFunction="6" toKey="1"
+        toNamePath="Set Process Property/LAST_RECORD_DATE"
+        toType="function" />
+        <Mapping fromFunction="0" fromKey="2" fromKeyPath="null"
+        fromNamePath="Editor/Date Format" fromTagListKey="null"
+        fromType="function" toFunction="1" toKey="3"
+        toKeyPath="null" toNamePath="Date Format/Output Mask"
+        toTagListKey="null" toType="function" />
+        <Mapping fromFunction="0" fromKey="3" fromKeyPath="null"
+        fromNamePath="Editor/Value" fromTagListKey="null"
+        fromType="function" toFunction="1" toKey="1"
+        toKeyPath="null" toNamePath="Date Format/Date String"
+        toTagListKey="null" toType="function" />
+        <Mapping fromFunction="4" fromKey="4"
+        fromNamePath="Embedded Scripting/bizresult"
+        fromType="function" toFunction="0" toKey="1"
+        toNamePath="Editor/bizresult" toType="function" />
+        <Mapping fromFunction="5" fromKey="1"
+        fromNamePath="Get Process Property/LAST_RECORD_DATE"
+        fromType="function" toFunction="4" toKey="2"
+        toNamePath="Embedded Scripting/propval"
+        toType="function" />
+      </Mappings>
+    </Function>
+  </Object>
+</Component>
