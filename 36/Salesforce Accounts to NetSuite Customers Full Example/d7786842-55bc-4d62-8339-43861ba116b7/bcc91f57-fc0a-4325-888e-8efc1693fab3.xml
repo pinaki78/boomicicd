@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Component xmlns:ns2="http://www.boomi.com/connector/annotation"
+xmlns:ns3="http://exacttarget.com/wsdl/partnerAPI"
+xmlns:ns4="urn:fault.partner.exacttarget.com"
+xmlns:ns5="http://schemas.boomi.com/sap/edi_dc40"
+xmlns:ns6="http://schemas.microsoft.com/2003/10/Serialization/"
+deleted="false">
+  <Id>bcc91f57-fc0a-4325-888e-8efc1693fab3</Id>
+  <Type>connector-action</Type>
+  <Name>Customer Upsert 2016.1</Name>
+  <Version>1</Version>
+  <FolderId name="Training-P-Chakraborty/Certification">
+  2400156</FolderId>
+  <AccountId>trainingpchakraborty-XJQZPO</AccountId>
+  <Properties>
+    <Property>
+      <Name>connector-type</Name>
+      <Value>netsuitesdk</Value>
+    </Property>
+    <Property>
+      <Name>action-type</Name>
+      <Value>UPSERT</Value>
+    </Property>
+    <Property>
+      <Name>parameter-profile</Name>
+      <Value>5f83c378-9e45-4168-a71f-ca93ddc4d239</Value>
+    </Property>
+  </Properties>
+  <References>
+    <Ref compId="5f83c378-9e45-4168-a71f-ca93ddc4d239"
+    refId="request-profile"
+    name="NetSuite Customer COMMON 2016.1" />
+  </References>
+  <Description />
+  <Object>
+    <Operation returnApplicationErrors="true"
+    trackResponse="false">
+      <Archiving directory="" enabled="false" />
+      <Configuration>
+        <GenericOperationConfig objectTypeId="Customer-upsert-listsRelationships"
+        objectTypeName="Customer" operationType="UPSERT"
+        requestProfile="5f83c378-9e45-4168-a71f-ca93ddc4d239"
+        requestProfileType="xml" responseProfileType="xml">
+          <field id="useConditionalDefaultsOnUpdate" type="string"
+          value="true" />
+          <field id="warningAsError" type="string" value="false" />
+          <field id="ignoreReadOnlyFields" type="string"
+          value="true" />
+          <field id="disableMandatoryCustomFieldValidation"
+          type="string" value="notSet" />
+          <field id="disableSystemNotesForCustomFields"
+          type="string" value="notSet" />
+          <field id="batchSize" type="integer" value="0" />
+          <cookie role="INPUT">
+            <value>
+            H4sIAAAAAAAAAO1bXXPaOBT9Kx4/bR8WkPkI2QntJLTMZjaknZBOp08aYd+ANrbkkeWk9NevZEOQ
+            U4JqP+B90AsD0rWlc3QkXekMFx9+JLH3BCKjnE181On5HrCQR5StJv7X+9mfY9/LJGERiTmDib+B
+            zP/w/uIWZJZTCXOQ5COR5P3FNM8kTz4v/4VQ3tBM7kpmFOJIF3i8qLsliXrNZRQJyDLfS4lcT/wy
+            FESXlOVLzh/1M+Zv8/v28W5YbcLvHm9118wvzb5+jwK40JWzOLqDBy8mS4gn/heySYBJPOVJQmXx
+            VWEH35ObFFQcCEUd3KsfE58ptnyvfK8uuWYSBCPxdTTxg3OzZhEKmkpdrsvUS6ncBGoYfmS0fJVu
+            w0ClGnqp1LCylIQqKhfsr5ALwEEPjTDqpDGRD1wknWdYZiCeaAhZh22HrRPyRJP1mygvE54zWRtn
+            v2fFiQycCymU6k6IdMrjWGlDKR/fcqmEXRsgsgIMWgW41TeeCoioxJ8Z/pvHUX3BngU2oPghkTjc
+            tReW7Sli10V7LxRccR4DYSfk4JpFqkxssG6gRK57Pi6/luvCLqYsq8LjSaxWhPFBzsr6YsV4SyFW
+            4vqmQEDr8aQzIEkJ2+AF/Wlwc25ysw3x9iGH+Dlvyk/fxs+gTX4uGctJjO/gCVhuMIR6JkVllFeJ
+            OkTS7qn6LI1sLI3aZOk7EIE/qSxhqVCuof760j+z4Ttrcxmd57GkaQz4hodEbxcNdoqhDeGw1VVy
+            kacpFxLfKA3Hhs77ps63QZ4RdFDm/YYyD6z5Agra1DlGOOFMruvvn9b5i8atDj8OmiKzzlx03iqy
+            qUqeV3y3tRearoq6GnBIz1h1OcIsFzJXHVIrQFN5j6z6LpsKX7rUntbnKoHLE5M1kzSz9jVlAlQH
+            ol38QZbuipAyITvM1dBOVbLtQ3sc/QMb/E0BMVgamCypek/XezOS0PiIwnaP1ZbUwEqTQdgjbJ6L
+            3rbH2EJlCuEaf2Irysx0aljZZoogzww6SNqwKWnWU5tBWlb2GLad+Z9Qh9VWtKdv9DZ93h/o3dsU
+            DvCxWXo0Ix1Y83aM2qTrI4RU32nhOXlUB9LrSPfqgTZJTsc2qO3u3Vd5tAKJL9NU8CeIcH2A1uuo
+            drdwdbKgidoSI1xCrQ0QWUcQ9do8X1zlG9UgvqcJ4JlQDRgrY2BO7TLQ04GeEXhwdQwazmxkVQNq
+            dWLfC6pO5F+U1sv53ewG1nrtgMzz2IlvYF9BBCPBGFQSjO+Q3fIjy3vTtCKwru6o1QuHaS6Evpee
+            6zML/pqRVX0JIPvJpc01QY1+lIcy2w99v3LntK1/e/D7TS+bAutVBTo71eB3jffaTaWyDkSZAd3x
+            5yuS0fC12VOt7S6Lz7D6WmcAOQPIGUDOANovp84AcgaQM4CcAeQMIGcAOQPIGUCN5O0MIGcAOQPI
+            GUDOAHIGkDOAnAHkDCBnADkDyBlAzgD6fQNoW2L+0egF4b5QP/rLf5T+A+2CuCLtNAAA</value>
+          </cookie>
+          <Options>
+            <QueryOptions>
+              <Fields>
+                <ConnectorObject name="Customer" />
+              </Fields>
+              <Inputs />
+            </QueryOptions>
+          </Options>
+        </GenericOperationConfig>
+      </Configuration>
+      <Tracking>
+        <TrackedFields />
+      </Tracking>
+      <Caching />
+    </Operation>
+  </Object>
+</Component>

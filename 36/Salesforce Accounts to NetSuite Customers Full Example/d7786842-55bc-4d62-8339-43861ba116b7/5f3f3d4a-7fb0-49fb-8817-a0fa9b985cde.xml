@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Component xmlns:ns2="http://www.boomi.com/connector/annotation"
+xmlns:ns3="http://exacttarget.com/wsdl/partnerAPI"
+xmlns:ns4="urn:fault.partner.exacttarget.com"
+xmlns:ns5="http://schemas.boomi.com/sap/edi_dc40"
+xmlns:ns6="http://schemas.microsoft.com/2003/10/Serialization/"
+deleted="false">
+  <Id>5f3f3d4a-7fb0-49fb-8817-a0fa9b985cde</Id>
+  <Type>documentcache</Type>
+  <Name>NS Subsidiary</Name>
+  <Version>1</Version>
+  <FolderId name="Training-P-Chakraborty/Certification">
+  2400156</FolderId>
+  <AccountId>trainingpchakraborty-XJQZPO</AccountId>
+  <Properties />
+  <References>
+    <Ref compId="4c6663a7-114a-40f2-ad27-6a36eb2571d1"
+    refId="docCacheProfile"
+    name="NetSuite Subsidiary QUERY Response 2016.1" />
+  </References>
+  <Object>
+    <DocumentCache profile="4c6663a7-114a-40f2-ad27-6a36eb2571d1"
+    profileType="profile.xml">
+      <CacheIndex indexId="1" indexName="Subsidiary Name">
+        <cacheKey xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        alias="Name" elementKey="8" id="2"
+        name="name (Subsidiary/name)" taglistKey="0"
+        xsi:type="ProfileElementKeyConfig" />
+      </CacheIndex>
+    </DocumentCache>
+  </Object>
+</Component>
