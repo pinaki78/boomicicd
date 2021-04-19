@@ -1,0 +1,477 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Component xmlns:ns2="http://www.boomi.com/connector/annotation"
+xmlns:ns3="http://exacttarget.com/wsdl/partnerAPI"
+xmlns:ns4="urn:fault.partner.exacttarget.com"
+xmlns:ns5="http://schemas.boomi.com/sap/edi_dc40"
+xmlns:ns6="http://schemas.microsoft.com/2003/10/Serialization/">
+  <Id>6d81af53-5ec2-4124-89a3-0cb904ba4621</Id>
+  <Type>profile.xml</Type>
+  <Name>NetSuite Get Select Value EXECUTE Response 2016.1</Name>
+  <Version>1</Version>
+  <FolderId name="Training-P-Chakraborty/Certification">
+  2400156</FolderId>
+  <AccountId>trainingpchakraborty-XJQZPO</AccountId>
+  <Properties />
+  <References />
+  <Description />
+  <Object>
+    <XMLProfile modelVersion="2" strict="true">
+      <ProfileProperties>
+        <XMLGeneralInfo />
+        <XMLOptions encoding="utf8" implicitElementOrdering="false"
+        parseRespectMaxOccurs="false" respectMinOccurs="false"
+        respectMinOccursAlways="false" />
+      </ProfileProperties>
+      <DataElements>
+        <XMLElement dataType="character" isMappable="true"
+        isNode="true" key="1" maxOccurs="1" minOccurs="1"
+        name="recordRef" typeExpanded="true" typeKey="3"
+        typeName="RecordRef"
+        typeNamespace="urn:core_2016_1.platform.webservices.netsuite.com"
+        useNamespace="4">
+          <DataFormat>
+            <ProfileCharacterFormat />
+          </DataFormat>
+          <XMLNSDeclList>
+            <XMLNSDeclaration defaultNamespace="false"
+            isMappable="false" isNode="true" key="4" />
+          </XMLNSDeclList>
+          <XMLAttribute dataType="character" isMappable="true"
+          isNode="true" key="10" name="internalId" required="false"
+          useNamespace="-1" validateData="false">
+            <DataFormat>
+              <ProfileCharacterFormat />
+            </DataFormat>
+          </XMLAttribute>
+          <XMLAttribute dataType="character" isMappable="true"
+          isNode="true" key="12" name="externalId" required="false"
+          useNamespace="-1" validateData="false">
+            <DataFormat>
+              <ProfileCharacterFormat />
+            </DataFormat>
+          </XMLAttribute>
+          <XMLAttribute dataType="character" isMappable="true"
+          isNode="true" key="14" name="type" required="false"
+          useNamespace="-1" validateData="false">
+            <DataFormat>
+              <ProfileCharacterFormat />
+            </DataFormat>
+            <QualifierList>
+              <Qualifier qualifierValue="account" />
+              <Qualifier qualifierValue="accountingPeriod" />
+              <Qualifier qualifierValue="assemblyBuild" />
+              <Qualifier qualifierValue="assemblyUnbuild" />
+              <Qualifier qualifierValue="assemblyItem" />
+              <Qualifier qualifierValue="billingAccount" />
+              <Qualifier qualifierValue="billingSchedule" />
+              <Qualifier qualifierValue="bin" />
+              <Qualifier qualifierValue="binTransfer" />
+              <Qualifier qualifierValue="binWorksheet" />
+              <Qualifier qualifierValue="budget" />
+              <Qualifier qualifierValue="budgetCategory" />
+              <Qualifier qualifierValue="calendarEvent" />
+              <Qualifier qualifierValue="campaign" />
+              <Qualifier qualifierValue="campaignAudience" />
+              <Qualifier qualifierValue="campaignCategory" />
+              <Qualifier qualifierValue="campaignChannel" />
+              <Qualifier qualifierValue="campaignFamily" />
+              <Qualifier qualifierValue="campaignOffer" />
+              <Qualifier qualifierValue="campaignResponse" />
+              <Qualifier qualifierValue="campaignSearchEngine" />
+              <Qualifier qualifierValue="campaignSubscription" />
+              <Qualifier qualifierValue="campaignVertical" />
+              <Qualifier qualifierValue="cashRefund" />
+              <Qualifier qualifierValue="cashSale" />
+              <Qualifier qualifierValue="check" />
+              <Qualifier qualifierValue="charge" />
+              <Qualifier qualifierValue="classification" />
+              <Qualifier qualifierValue="contact" />
+              <Qualifier qualifierValue="contactCategory" />
+              <Qualifier qualifierValue="contactRole" />
+              <Qualifier qualifierValue="costCategory" />
+              <Qualifier qualifierValue="couponCode" />
+              <Qualifier qualifierValue="creditMemo" />
+              <Qualifier qualifierValue="crmCustomField" />
+              <Qualifier qualifierValue="currency" />
+              <Qualifier qualifierValue="currencyRate" />
+              <Qualifier qualifierValue="customList" />
+              <Qualifier qualifierValue="customRecord" />
+              <Qualifier qualifierValue="customRecordCustomField" />
+              <Qualifier qualifierValue="customRecordType" />
+              <Qualifier qualifierValue="customTransaction" />
+              <Qualifier qualifierValue="customTransactionType" />
+              <Qualifier qualifierValue="customer" />
+              <Qualifier qualifierValue="customerCategory" />
+              <Qualifier qualifierValue="customerDeposit" />
+              <Qualifier qualifierValue="customerMessage" />
+              <Qualifier qualifierValue="customerPayment" />
+              <Qualifier qualifierValue="customerRefund" />
+              <Qualifier qualifierValue="customerStatus" />
+              <Qualifier qualifierValue="deposit" />
+              <Qualifier qualifierValue="depositApplication" />
+              <Qualifier qualifierValue="department" />
+              <Qualifier qualifierValue="descriptionItem" />
+              <Qualifier qualifierValue="discountItem" />
+              <Qualifier qualifierValue="downloadItem" />
+              <Qualifier qualifierValue="employee" />
+              <Qualifier qualifierValue="entityCustomField" />
+              <Qualifier qualifierValue="entityGroup" />
+              <Qualifier qualifierValue="estimate" />
+              <Qualifier qualifierValue="expenseCategory" />
+              <Qualifier qualifierValue="expenseReport" />
+              <Qualifier qualifierValue="fairValuePrice" />
+              <Qualifier qualifierValue="file" />
+              <Qualifier qualifierValue="folder" />
+              <Qualifier qualifierValue="giftCertificate" />
+              <Qualifier qualifierValue="giftCertificateItem" />
+              <Qualifier qualifierValue="globalAccountMapping" />
+              <Qualifier qualifierValue="interCompanyJournalEntry" />
+              <Qualifier qualifierValue="interCompanyTransferOrder" />
+              <Qualifier qualifierValue="inventoryAdjustment" />
+              <Qualifier qualifierValue="inventoryCostRevaluation" />
+              <Qualifier qualifierValue="inventoryItem" />
+              <Qualifier qualifierValue="inventoryNumber" />
+              <Qualifier qualifierValue="inventoryTransfer" />
+              <Qualifier qualifierValue="invoice" />
+              <Qualifier qualifierValue="itemAccountMapping" />
+              <Qualifier qualifierValue="itemCustomField" />
+              <Qualifier qualifierValue="itemDemandPlan" />
+              <Qualifier qualifierValue="itemFulfillment" />
+              <Qualifier qualifierValue="itemGroup" />
+              <Qualifier qualifierValue="itemNumberCustomField" />
+              <Qualifier qualifierValue="itemOptionCustomField" />
+              <Qualifier qualifierValue="itemSupplyPlan" />
+              <Qualifier qualifierValue="itemRevision" />
+              <Qualifier qualifierValue="issue" />
+              <Qualifier qualifierValue="job" />
+              <Qualifier qualifierValue="jobStatus" />
+              <Qualifier qualifierValue="jobType" />
+              <Qualifier qualifierValue="itemReceipt" />
+              <Qualifier qualifierValue="journalEntry" />
+              <Qualifier qualifierValue="kitItem" />
+              <Qualifier qualifierValue="leadSource" />
+              <Qualifier qualifierValue="location" />
+              <Qualifier qualifierValue="lotNumberedInventoryItem" />
+              <Qualifier qualifierValue="lotNumberedAssemblyItem" />
+              <Qualifier qualifierValue="markupItem" />
+              <Qualifier qualifierValue="message" />
+              <Qualifier qualifierValue="manufacturingCostTemplate" />
+              <Qualifier qualifierValue="manufacturingOperationTask" />
+              <Qualifier qualifierValue="manufacturingRouting" />
+              <Qualifier qualifierValue="nexus" />
+              <Qualifier qualifierValue="nonInventoryPurchaseItem" />
+              <Qualifier qualifierValue="nonInventoryResaleItem" />
+              <Qualifier qualifierValue="nonInventorySaleItem" />
+              <Qualifier qualifierValue="note" />
+              <Qualifier qualifierValue="noteType" />
+              <Qualifier qualifierValue="opportunity" />
+              <Qualifier qualifierValue="otherChargePurchaseItem" />
+              <Qualifier qualifierValue="otherChargeResaleItem" />
+              <Qualifier qualifierValue="otherChargeSaleItem" />
+              <Qualifier qualifierValue="otherCustomField" />
+              <Qualifier qualifierValue="otherNameCategory" />
+              <Qualifier qualifierValue="partner" />
+              <Qualifier qualifierValue="partnerCategory" />
+              <Qualifier qualifierValue="paycheckJournal" />
+              <Qualifier qualifierValue="paymentItem" />
+              <Qualifier qualifierValue="paymentMethod" />
+              <Qualifier qualifierValue="payrollItem" />
+              <Qualifier qualifierValue="phoneCall" />
+              <Qualifier qualifierValue="priceLevel" />
+              <Qualifier qualifierValue="pricingGroup" />
+              <Qualifier qualifierValue="projectTask" />
+              <Qualifier qualifierValue="promotionCode" />
+              <Qualifier qualifierValue="purchaseOrder" />
+              <Qualifier qualifierValue="purchaseRequisition" />
+              <Qualifier qualifierValue="resourceAllocation" />
+              <Qualifier qualifierValue="returnAuthorization" />
+              <Qualifier qualifierValue="revRecSchedule" />
+              <Qualifier qualifierValue="revRecTemplate" />
+              <Qualifier qualifierValue="salesOrder" />
+              <Qualifier qualifierValue="salesRole" />
+              <Qualifier qualifierValue="salesTaxItem" />
+              <Qualifier qualifierValue="serializedInventoryItem" />
+              <Qualifier qualifierValue="serializedAssemblyItem" />
+              <Qualifier qualifierValue="servicePurchaseItem" />
+              <Qualifier qualifierValue="serviceResaleItem" />
+              <Qualifier qualifierValue="serviceSaleItem" />
+              <Qualifier qualifierValue="solution" />
+              <Qualifier qualifierValue="siteCategory" />
+              <Qualifier qualifierValue="state" />
+              <Qualifier qualifierValue="statisticalJournalEntry" />
+              <Qualifier qualifierValue="subsidiary" />
+              <Qualifier qualifierValue="subtotalItem" />
+              <Qualifier qualifierValue="supportCase" />
+              <Qualifier qualifierValue="supportCaseIssue" />
+              <Qualifier qualifierValue="supportCaseOrigin" />
+              <Qualifier qualifierValue="supportCasePriority" />
+              <Qualifier qualifierValue="supportCaseStatus" />
+              <Qualifier qualifierValue="supportCaseType" />
+              <Qualifier qualifierValue="task" />
+              <Qualifier qualifierValue="taxAcct" />
+              <Qualifier qualifierValue="taxGroup" />
+              <Qualifier qualifierValue="taxType" />
+              <Qualifier qualifierValue="term" />
+              <Qualifier qualifierValue="timeBill" />
+              <Qualifier qualifierValue="timeSheet" />
+              <Qualifier qualifierValue="topic" />
+              <Qualifier qualifierValue="transferOrder" />
+              <Qualifier qualifierValue="transactionBodyCustomField" />
+              <Qualifier qualifierValue="transactionColumnCustomField" />
+              <Qualifier qualifierValue="unitsType" />
+              <Qualifier qualifierValue="vendor" />
+              <Qualifier qualifierValue="vendorCategory" />
+              <Qualifier qualifierValue="vendorBill" />
+              <Qualifier qualifierValue="vendorCredit" />
+              <Qualifier qualifierValue="vendorPayment" />
+              <Qualifier qualifierValue="vendorReturnAuthorization" />
+              <Qualifier qualifierValue="winLossReason" />
+              <Qualifier qualifierValue="workOrder" />
+              <Qualifier qualifierValue="workOrderIssue" />
+              <Qualifier qualifierValue="workOrderCompletion" />
+              <Qualifier qualifierValue="workOrderClose" />
+            </QualifierList>
+          </XMLAttribute>
+          <XMLElement dataType="character" isMappable="true"
+          isNode="true" key="16" loopingOption="unique"
+          maxOccurs="1" minOccurs="0" name="name" typeKey="-1"
+          useNamespace="4" validateData="false">
+            <DataFormat>
+              <ProfileCharacterFormat />
+            </DataFormat>
+          </XMLElement>
+        </XMLElement>
+      </DataElements>
+      <Namespaces>
+        <XMLNamespace key="-1" name="Empty Namespace" prefix="ns2">
+          <Types />
+        </XMLNamespace>
+        <XMLNamespace key="4"
+        name="urn:core_2016_1.platform.webservices.netsuite.com"
+        prefix="ns1">
+          <Types>
+            <Type anonymous="false" declarationClass="cType"
+            typeKey="3">
+              <XMLElement dataType="character" isMappable="true"
+              isNode="true" key="4" loopingOption="unique"
+              maxOccurs="1" minOccurs="0" name="RecordRef"
+              typeExpanded="false" typeKey="3" typeName="RecordRef"
+              typeNamespace="urn:core_2016_1.platform.webservices.netsuite.com"
+              useNamespace="4" validateData="false">
+                <DataFormat>
+                  <ProfileCharacterFormat />
+                </DataFormat>
+                <XMLAttribute dataType="character"
+                isMappable="true" isNode="true" key="5"
+                name="internalId" required="false"
+                useNamespace="-1">
+                  <DataFormat>
+                    <ProfileCharacterFormat />
+                  </DataFormat>
+                </XMLAttribute>
+                <XMLAttribute dataType="character"
+                isMappable="true" isNode="true" key="6"
+                name="externalId" required="false"
+                useNamespace="-1">
+                  <DataFormat>
+                    <ProfileCharacterFormat />
+                  </DataFormat>
+                </XMLAttribute>
+                <XMLAttribute dataType="character"
+                isMappable="true" isNode="true" key="7" name="type"
+                required="false" useNamespace="-1">
+                  <DataFormat>
+                    <ProfileCharacterFormat />
+                  </DataFormat>
+                  <QualifierList>
+                    <Qualifier qualifierValue="account" />
+                    <Qualifier qualifierValue="accountingPeriod" />
+                    <Qualifier qualifierValue="assemblyBuild" />
+                    <Qualifier qualifierValue="assemblyUnbuild" />
+                    <Qualifier qualifierValue="assemblyItem" />
+                    <Qualifier qualifierValue="billingAccount" />
+                    <Qualifier qualifierValue="billingSchedule" />
+                    <Qualifier qualifierValue="bin" />
+                    <Qualifier qualifierValue="binTransfer" />
+                    <Qualifier qualifierValue="binWorksheet" />
+                    <Qualifier qualifierValue="budget" />
+                    <Qualifier qualifierValue="budgetCategory" />
+                    <Qualifier qualifierValue="calendarEvent" />
+                    <Qualifier qualifierValue="campaign" />
+                    <Qualifier qualifierValue="campaignAudience" />
+                    <Qualifier qualifierValue="campaignCategory" />
+                    <Qualifier qualifierValue="campaignChannel" />
+                    <Qualifier qualifierValue="campaignFamily" />
+                    <Qualifier qualifierValue="campaignOffer" />
+                    <Qualifier qualifierValue="campaignResponse" />
+                    <Qualifier qualifierValue="campaignSearchEngine" />
+                    <Qualifier qualifierValue="campaignSubscription" />
+                    <Qualifier qualifierValue="campaignVertical" />
+                    <Qualifier qualifierValue="cashRefund" />
+                    <Qualifier qualifierValue="cashSale" />
+                    <Qualifier qualifierValue="check" />
+                    <Qualifier qualifierValue="charge" />
+                    <Qualifier qualifierValue="classification" />
+                    <Qualifier qualifierValue="contact" />
+                    <Qualifier qualifierValue="contactCategory" />
+                    <Qualifier qualifierValue="contactRole" />
+                    <Qualifier qualifierValue="costCategory" />
+                    <Qualifier qualifierValue="couponCode" />
+                    <Qualifier qualifierValue="creditMemo" />
+                    <Qualifier qualifierValue="crmCustomField" />
+                    <Qualifier qualifierValue="currency" />
+                    <Qualifier qualifierValue="currencyRate" />
+                    <Qualifier qualifierValue="customList" />
+                    <Qualifier qualifierValue="customRecord" />
+                    <Qualifier qualifierValue="customRecordCustomField" />
+                    <Qualifier qualifierValue="customRecordType" />
+                    <Qualifier qualifierValue="customTransaction" />
+                    <Qualifier qualifierValue="customTransactionType" />
+                    <Qualifier qualifierValue="customer" />
+                    <Qualifier qualifierValue="customerCategory" />
+                    <Qualifier qualifierValue="customerDeposit" />
+                    <Qualifier qualifierValue="customerMessage" />
+                    <Qualifier qualifierValue="customerPayment" />
+                    <Qualifier qualifierValue="customerRefund" />
+                    <Qualifier qualifierValue="customerStatus" />
+                    <Qualifier qualifierValue="deposit" />
+                    <Qualifier qualifierValue="depositApplication" />
+                    <Qualifier qualifierValue="department" />
+                    <Qualifier qualifierValue="descriptionItem" />
+                    <Qualifier qualifierValue="discountItem" />
+                    <Qualifier qualifierValue="downloadItem" />
+                    <Qualifier qualifierValue="employee" />
+                    <Qualifier qualifierValue="entityCustomField" />
+                    <Qualifier qualifierValue="entityGroup" />
+                    <Qualifier qualifierValue="estimate" />
+                    <Qualifier qualifierValue="expenseCategory" />
+                    <Qualifier qualifierValue="expenseReport" />
+                    <Qualifier qualifierValue="fairValuePrice" />
+                    <Qualifier qualifierValue="file" />
+                    <Qualifier qualifierValue="folder" />
+                    <Qualifier qualifierValue="giftCertificate" />
+                    <Qualifier qualifierValue="giftCertificateItem" />
+                    <Qualifier qualifierValue="globalAccountMapping" />
+                    <Qualifier qualifierValue="interCompanyJournalEntry" />
+                    <Qualifier qualifierValue="interCompanyTransferOrder" />
+                    <Qualifier qualifierValue="inventoryAdjustment" />
+                    <Qualifier qualifierValue="inventoryCostRevaluation" />
+                    <Qualifier qualifierValue="inventoryItem" />
+                    <Qualifier qualifierValue="inventoryNumber" />
+                    <Qualifier qualifierValue="inventoryTransfer" />
+                    <Qualifier qualifierValue="invoice" />
+                    <Qualifier qualifierValue="itemAccountMapping" />
+                    <Qualifier qualifierValue="itemCustomField" />
+                    <Qualifier qualifierValue="itemDemandPlan" />
+                    <Qualifier qualifierValue="itemFulfillment" />
+                    <Qualifier qualifierValue="itemGroup" />
+                    <Qualifier qualifierValue="itemNumberCustomField" />
+                    <Qualifier qualifierValue="itemOptionCustomField" />
+                    <Qualifier qualifierValue="itemSupplyPlan" />
+                    <Qualifier qualifierValue="itemRevision" />
+                    <Qualifier qualifierValue="issue" />
+                    <Qualifier qualifierValue="job" />
+                    <Qualifier qualifierValue="jobStatus" />
+                    <Qualifier qualifierValue="jobType" />
+                    <Qualifier qualifierValue="itemReceipt" />
+                    <Qualifier qualifierValue="journalEntry" />
+                    <Qualifier qualifierValue="kitItem" />
+                    <Qualifier qualifierValue="leadSource" />
+                    <Qualifier qualifierValue="location" />
+                    <Qualifier qualifierValue="lotNumberedInventoryItem" />
+                    <Qualifier qualifierValue="lotNumberedAssemblyItem" />
+                    <Qualifier qualifierValue="markupItem" />
+                    <Qualifier qualifierValue="message" />
+                    <Qualifier qualifierValue="manufacturingCostTemplate" />
+                    <Qualifier qualifierValue="manufacturingOperationTask" />
+                    <Qualifier qualifierValue="manufacturingRouting" />
+                    <Qualifier qualifierValue="nexus" />
+                    <Qualifier qualifierValue="nonInventoryPurchaseItem" />
+                    <Qualifier qualifierValue="nonInventoryResaleItem" />
+                    <Qualifier qualifierValue="nonInventorySaleItem" />
+                    <Qualifier qualifierValue="note" />
+                    <Qualifier qualifierValue="noteType" />
+                    <Qualifier qualifierValue="opportunity" />
+                    <Qualifier qualifierValue="otherChargePurchaseItem" />
+                    <Qualifier qualifierValue="otherChargeResaleItem" />
+                    <Qualifier qualifierValue="otherChargeSaleItem" />
+                    <Qualifier qualifierValue="otherCustomField" />
+                    <Qualifier qualifierValue="otherNameCategory" />
+                    <Qualifier qualifierValue="partner" />
+                    <Qualifier qualifierValue="partnerCategory" />
+                    <Qualifier qualifierValue="paycheckJournal" />
+                    <Qualifier qualifierValue="paymentItem" />
+                    <Qualifier qualifierValue="paymentMethod" />
+                    <Qualifier qualifierValue="payrollItem" />
+                    <Qualifier qualifierValue="phoneCall" />
+                    <Qualifier qualifierValue="priceLevel" />
+                    <Qualifier qualifierValue="pricingGroup" />
+                    <Qualifier qualifierValue="projectTask" />
+                    <Qualifier qualifierValue="promotionCode" />
+                    <Qualifier qualifierValue="purchaseOrder" />
+                    <Qualifier qualifierValue="purchaseRequisition" />
+                    <Qualifier qualifierValue="resourceAllocation" />
+                    <Qualifier qualifierValue="returnAuthorization" />
+                    <Qualifier qualifierValue="revRecSchedule" />
+                    <Qualifier qualifierValue="revRecTemplate" />
+                    <Qualifier qualifierValue="salesOrder" />
+                    <Qualifier qualifierValue="salesRole" />
+                    <Qualifier qualifierValue="salesTaxItem" />
+                    <Qualifier qualifierValue="serializedInventoryItem" />
+                    <Qualifier qualifierValue="serializedAssemblyItem" />
+                    <Qualifier qualifierValue="servicePurchaseItem" />
+                    <Qualifier qualifierValue="serviceResaleItem" />
+                    <Qualifier qualifierValue="serviceSaleItem" />
+                    <Qualifier qualifierValue="solution" />
+                    <Qualifier qualifierValue="siteCategory" />
+                    <Qualifier qualifierValue="state" />
+                    <Qualifier qualifierValue="statisticalJournalEntry" />
+                    <Qualifier qualifierValue="subsidiary" />
+                    <Qualifier qualifierValue="subtotalItem" />
+                    <Qualifier qualifierValue="supportCase" />
+                    <Qualifier qualifierValue="supportCaseIssue" />
+                    <Qualifier qualifierValue="supportCaseOrigin" />
+                    <Qualifier qualifierValue="supportCasePriority" />
+                    <Qualifier qualifierValue="supportCaseStatus" />
+                    <Qualifier qualifierValue="supportCaseType" />
+                    <Qualifier qualifierValue="task" />
+                    <Qualifier qualifierValue="taxAcct" />
+                    <Qualifier qualifierValue="taxGroup" />
+                    <Qualifier qualifierValue="taxType" />
+                    <Qualifier qualifierValue="term" />
+                    <Qualifier qualifierValue="timeBill" />
+                    <Qualifier qualifierValue="timeSheet" />
+                    <Qualifier qualifierValue="topic" />
+                    <Qualifier qualifierValue="transferOrder" />
+                    <Qualifier qualifierValue="transactionBodyCustomField" />
+                    <Qualifier qualifierValue="transactionColumnCustomField" />
+                    <Qualifier qualifierValue="unitsType" />
+                    <Qualifier qualifierValue="vendor" />
+                    <Qualifier qualifierValue="vendorCategory" />
+                    <Qualifier qualifierValue="vendorBill" />
+                    <Qualifier qualifierValue="vendorCredit" />
+                    <Qualifier qualifierValue="vendorPayment" />
+                    <Qualifier qualifierValue="vendorReturnAuthorization" />
+                    <Qualifier qualifierValue="winLossReason" />
+                    <Qualifier qualifierValue="workOrder" />
+                    <Qualifier qualifierValue="workOrderIssue" />
+                    <Qualifier qualifierValue="workOrderCompletion" />
+                    <Qualifier qualifierValue="workOrderClose" />
+                  </QualifierList>
+                </XMLAttribute>
+                <XMLElement dataType="character" isMappable="true"
+                isNode="true" key="8" maxOccurs="1" minOccurs="0"
+                name="name" useNamespace="4">
+                  <DataFormat>
+                    <ProfileCharacterFormat />
+                  </DataFormat>
+                </XMLElement>
+              </XMLElement>
+            </Type>
+          </Types>
+        </XMLNamespace>
+      </Namespaces>
+      <tagLists />
+    </XMLProfile>
+  </Object>
+</Component>

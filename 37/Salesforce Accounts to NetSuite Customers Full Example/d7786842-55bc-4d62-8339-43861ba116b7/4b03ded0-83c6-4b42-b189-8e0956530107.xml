@@ -1,0 +1,1025 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Component xmlns:ns2="http://www.boomi.com/connector/annotation"
+xmlns:ns3="http://exacttarget.com/wsdl/partnerAPI"
+xmlns:ns4="urn:fault.partner.exacttarget.com"
+xmlns:ns5="http://schemas.boomi.com/sap/edi_dc40"
+xmlns:ns6="http://schemas.microsoft.com/2003/10/Serialization/"
+deleted="false">
+  <Id>4b03ded0-83c6-4b42-b189-8e0956530107</Id>
+  <Type>connector-action</Type>
+  <Name>Subsidiary Query 2016.1 by IsInactive</Name>
+  <Version>1</Version>
+  <FolderId name="Training-P-Chakraborty/Certification">
+  2400156</FolderId>
+  <AccountId>trainingpchakraborty-XJQZPO</AccountId>
+  <Properties>
+    <Property>
+      <Name>connector-type</Name>
+      <Value>netsuitesdk</Value>
+    </Property>
+    <Property>
+      <Name>action-type</Name>
+      <Value>QUERY</Value>
+    </Property>
+    <Property>
+      <Name>output-profile</Name>
+      <Value>4c6663a7-114a-40f2-ad27-6a36eb2571d1</Value>
+    </Property>
+    <Property>
+      <Name>parameter-profile</Name>
+      <Value>EMBEDDED|genericparameterchooser</Value>
+    </Property>
+  </Properties>
+  <References>
+    <Ref compId="4c6663a7-114a-40f2-ad27-6a36eb2571d1"
+    refId="response-profile"
+    name="NetSuite Subsidiary QUERY Response 2016.1" />
+  </References>
+  <Description />
+  <Object>
+    <Operation returnApplicationErrors="false"
+    trackResponse="true">
+      <Archiving directory="" enabled="false" />
+      <Configuration>
+        <GenericOperationConfig objectTypeId="Subsidiary-search-listsAccounting"
+        objectTypeName="Subsidiary" operationType="QUERY"
+        requestProfileType="xml"
+        responseProfile="4c6663a7-114a-40f2-ad27-6a36eb2571d1"
+        responseProfileType="xml">
+          <field id="includeListFields" type="boolean"
+          value="false" />
+          <field id="batchResults" type="boolean" value="false" />
+          <field id="advancedSearch" type="boolean"
+          value="false" />
+          <cookie role="OUTPUT">
+            <value>
+            H4sIAAAAAAAAAL2T3U4CMRCFX6XpvbuwiYYYFuIPJCSKBvC6Kd0Barpt084i+/a2siCKiYEYL+ec
+            9uucdtrtb0pF1uC8NDqn7aRFCWhhCqmXOX2ZDS86lHjkuuDKaMhpDZ72e90xoK8kwiMgv+fIe927
+            yqMpn+avIPBBetwpQwmqiAIxH96YlwFzUxQOvKfEclzldFrNvSwkd3VacqkbNxVfCTQ9F+pX0toQ
+            6c/BDrByZ/crhKk07rBNeSplUFplaoAdZlcfccKrTSNoqIoJLIjic1AhDFfg2UAvpQZwlGBtIdjg
+            whjALBQ51eHlKdniojLSCE5zNSpymnUOnalw0mLUowYaJdYZJRsvt6RbYxRwfRAnHLX3Yx5vuQgL
+            w6VeC+OAZa32FWsnVnFcGFcmbzD34NZSgE90M4SJMGW8pZ/iPTuzYGzabGETsCdHvMx+i8isMyy2
+            xVzk/1Pc9NtU7JXDT7jP+SnGrUf/9x1lIaG1CQQAAA==</value>
+          </cookie>
+          <Options>
+            <QueryOptions>
+              <Fields>
+                <ConnectorObject name="Subsidiary">
+                  <FieldList>
+                    <ConnectorField filterable="true"
+                    name="Subsidiary|accountingBook"
+                    selectable="true" selected="true"
+                    sortable="false" type="mselect" />
+                    <ConnectorField filterable="true"
+                    name="Subsidiary|accountingBookCurrency"
+                    selectable="true" selected="true"
+                    sortable="false" type="mselect" />
+                    <ConnectorField filterable="true"
+                    name="Subsidiary|address" selectable="false"
+                    selected="false" sortable="false" type="str" />
+                    <ConnectorField filterable="false"
+                    name="Subsidiary|address1" selectable="true"
+                    selected="true" sortable="false" type="str" />
+                    <ConnectorField filterable="false"
+                    name="Subsidiary|address2" selectable="true"
+                    selected="true" sortable="false" type="str" />
+                    <ConnectorField filterable="false"
+                    name="Subsidiary|address3" selectable="true"
+                    selected="true" sortable="false" type="str" />
+                    <ConnectorField filterable="false"
+                    name="Subsidiary|anonymousCustomerInboundEmail"
+                    selectable="true" selected="true"
+                    sortable="false" type="str" />
+                    <ConnectorField filterable="false"
+                    name="Subsidiary|anonymousCustomerOnlineForms"
+                    selectable="true" selected="true"
+                    sortable="false" type="str" />
+                    <ConnectorField filterable="false"
+                    name="Subsidiary|caseAssignmentTemplate"
+                    selectable="true" selected="true"
+                    sortable="false" type="str" />
+                    <ConnectorField filterable="false"
+                    name="Subsidiary|caseAutomaticClosureTemplate"
+                    selectable="true" selected="true"
+                    sortable="false" type="str" />
+                    <ConnectorField filterable="false"
+                    name="Subsidiary|caseCopyEmployeeTemplate"
+                    selectable="true" selected="true"
+                    sortable="false" type="str" />
+                    <ConnectorField filterable="false"
+                    name="Subsidiary|caseCreationTemplate"
+                    selectable="true" selected="true"
+                    sortable="false" type="str" />
+                    <ConnectorField filterable="false"
+                    name="Subsidiary|caseEscalationTemplate"
+                    selectable="true" selected="true"
+                    sortable="false" type="str" />
+                    <ConnectorField filterable="false"
+                    name="Subsidiary|caseUpdateTemplate"
+                    selectable="true" selected="true"
+                    sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="Subsidiary|city" selectable="true"
+                    selected="false" sortable="false" type="str" />
+                    <ConnectorField filterable="false"
+                    name="Subsidiary|companyNameForSupportMessages"
+                    selectable="true" selected="true"
+                    sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="Subsidiary|country" selectable="true"
+                    selected="false" sortable="false"
+                    type="enum" />
+                    <ConnectorField filterable="true"
+                    name="Subsidiary|currency" selectable="true"
+                    selected="false" sortable="false"
+                    type="mselect" />
+                    <ConnectorField filterable="true"
+                    name="Subsidiary|customFieldList"
+                    selectable="true" selected="false"
+                    sortable="false" type="list_c" />
+                    <ConnectorField filterable="true"
+                    name="Subsidiary|email" selectable="true"
+                    selected="false" sortable="false" type="str" />
+                    <ConnectorField filterable="false"
+                    name="Subsidiary|employeeCaseUpdateTemplate"
+                    selectable="true" selected="true"
+                    sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="Subsidiary|externalId" selectable="true"
+                    selected="false" sortable="false"
+                    type="mselect" />
+                    <ConnectorField filterable="true"
+                    name="Subsidiary|externalIdString"
+                    selectable="false" selected="false"
+                    sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="Subsidiary|fax" selectable="true"
+                    selected="false" sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="Subsidiary|internalId" selectable="true"
+                    selected="false" sortable="false"
+                    type="mselect" />
+                    <ConnectorField filterable="true"
+                    name="Subsidiary|internalIdNumber"
+                    selectable="false" selected="false"
+                    sortable="false" type="long" />
+                    <ConnectorField filterable="true"
+                    name="Subsidiary|isElimination"
+                    selectable="true" selected="false"
+                    sortable="false" type="bool" />
+                    <ConnectorField filterable="true"
+                    name="Subsidiary|isInactive" selectable="true"
+                    selected="false" sortable="false"
+                    type="bool" />
+                    <ConnectorField filterable="true"
+                    name="Subsidiary|legalName" selectable="true"
+                    selected="false" sortable="false" type="str" />
+                    <ConnectorField filterable="false"
+                    name="Subsidiary|mainSupportEmailAddress"
+                    selectable="true" selected="true"
+                    sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="Subsidiary|name" selectable="true"
+                    selected="false" sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="Subsidiary|nameNoHierarchy"
+                    selectable="true" selected="false"
+                    sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="Subsidiary|phone" selectable="true"
+                    selected="false" sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="Subsidiary|purchaseOrderAmount"
+                    selectable="true" selected="true"
+                    sortable="false" type="dbl" />
+                    <ConnectorField filterable="true"
+                    name="Subsidiary|purchaseOrderQuantity"
+                    selectable="true" selected="true"
+                    sortable="false" type="dbl" />
+                    <ConnectorField filterable="true"
+                    name="Subsidiary|purchaseOrderQuantityDiff"
+                    selectable="true" selected="true"
+                    sortable="false" type="dbl" />
+                    <ConnectorField filterable="true"
+                    name="Subsidiary|receiptAmount"
+                    selectable="true" selected="true"
+                    sortable="false" type="dbl" />
+                    <ConnectorField filterable="true"
+                    name="Subsidiary|receiptQuantity"
+                    selectable="true" selected="true"
+                    sortable="false" type="dbl" />
+                    <ConnectorField filterable="true"
+                    name="Subsidiary|receiptQuantityDiff"
+                    selectable="true" selected="true"
+                    sortable="false" type="dbl" />
+                    <ConnectorField filterable="true"
+                    name="Subsidiary|state" selectable="true"
+                    selected="false" sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="Subsidiary|taxIdNum" selectable="true"
+                    selected="false" sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="Subsidiary|tranPrefix" selectable="true"
+                    selected="false" sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="Subsidiary|url" selectable="true"
+                    selected="false" sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="Subsidiary|zip" selectable="true"
+                    selected="false" sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="address|address" selectable="true"
+                    selected="true" sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="address|address1" selectable="true"
+                    selected="true" sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="address|address2" selectable="true"
+                    selected="true" sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="address|address3" selectable="true"
+                    selected="true" sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="address|addressee" selectable="true"
+                    selected="true" sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="address|attention" selectable="true"
+                    selected="true" sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="address|city" selectable="true"
+                    selected="true" sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="address|country" selectable="true"
+                    selected="true" sortable="false" type="enum" />
+                    <ConnectorField filterable="true"
+                    name="address|countryCode" selectable="true"
+                    selected="true" sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="address|customFieldList"
+                    selectable="true" selected="true"
+                    sortable="false" type="list_c" />
+                    <ConnectorField filterable="true"
+                    name="address|externalId" selectable="true"
+                    selected="true" sortable="false"
+                    type="mselect" />
+                    <ConnectorField filterable="true"
+                    name="address|externalIdString"
+                    selectable="false" selected="false"
+                    sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="address|internalId" selectable="true"
+                    selected="true" sortable="false"
+                    type="mselect" />
+                    <ConnectorField filterable="true"
+                    name="address|internalIdNumber"
+                    selectable="false" selected="false"
+                    sortable="false" type="long" />
+                    <ConnectorField filterable="true"
+                    name="address|override" selectable="true"
+                    selected="true" sortable="false" type="bool" />
+                    <ConnectorField filterable="true"
+                    name="address|phone" selectable="true"
+                    selected="true" sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="address|state" selectable="true"
+                    selected="true" sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="address|zip" selectable="true"
+                    selected="true" sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="defaultAdvanceToApplyAccount|balance"
+                    selectable="true" selected="true"
+                    sortable="false" type="dbl" />
+                    <ConnectorField filterable="true"
+                    name="defaultAdvanceToApplyAccount|cashFlowRateType"
+                    selectable="true" selected="true"
+                    sortable="false" type="enum" />
+                    <ConnectorField filterable="true"
+                    name="defaultAdvanceToApplyAccount|category1099Misc"
+                    selectable="true" selected="true"
+                    sortable="false" type="mselect" />
+                    <ConnectorField filterable="true"
+                    name="defaultAdvanceToApplyAccount|customFieldList"
+                    selectable="true" selected="true"
+                    sortable="false" type="list_c" />
+                    <ConnectorField filterable="true"
+                    name="defaultAdvanceToApplyAccount|description"
+                    selectable="true" selected="true"
+                    sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="defaultAdvanceToApplyAccount|externalId"
+                    selectable="true" selected="true"
+                    sortable="false" type="mselect" />
+                    <ConnectorField filterable="true"
+                    name="defaultAdvanceToApplyAccount|externalIdString"
+                    selectable="false" selected="false"
+                    sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="defaultAdvanceToApplyAccount|generalRateType"
+                    selectable="true" selected="true"
+                    sortable="false" type="enum" />
+                    <ConnectorField filterable="true"
+                    name="defaultAdvanceToApplyAccount|internalId"
+                    selectable="true" selected="true"
+                    sortable="false" type="mselect" />
+                    <ConnectorField filterable="true"
+                    name="defaultAdvanceToApplyAccount|internalIdNumber"
+                    selectable="false" selected="false"
+                    sortable="false" type="long" />
+                    <ConnectorField filterable="true"
+                    name="defaultAdvanceToApplyAccount|isInactive"
+                    selectable="true" selected="true"
+                    sortable="false" type="bool" />
+                    <ConnectorField filterable="true"
+                    name="defaultAdvanceToApplyAccount|name"
+                    selectable="true" selected="true"
+                    sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="defaultAdvanceToApplyAccount|number"
+                    selectable="true" selected="true"
+                    sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="defaultAdvanceToApplyAccount|parent"
+                    selectable="false" selected="false"
+                    sortable="false" type="mselect" />
+                    <ConnectorField filterable="true"
+                    name="defaultAdvanceToApplyAccount|subsidiary"
+                    selectable="true" selected="true"
+                    sortable="false" type="mselect" />
+                    <ConnectorField filterable="true"
+                    name="defaultAdvanceToApplyAccount|type"
+                    selectable="true" selected="true"
+                    sortable="false" type="enum" />
+                    <ConnectorField filterable="true"
+                    name="returnAddress|address" selectable="true"
+                    selected="true" sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="returnAddress|address1" selectable="true"
+                    selected="true" sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="returnAddress|address2" selectable="true"
+                    selected="true" sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="returnAddress|address3" selectable="true"
+                    selected="true" sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="returnAddress|addressee"
+                    selectable="true" selected="true"
+                    sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="returnAddress|attention"
+                    selectable="true" selected="true"
+                    sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="returnAddress|city" selectable="true"
+                    selected="true" sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="returnAddress|country" selectable="true"
+                    selected="true" sortable="false" type="enum" />
+                    <ConnectorField filterable="true"
+                    name="returnAddress|countryCode"
+                    selectable="true" selected="true"
+                    sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="returnAddress|customFieldList"
+                    selectable="true" selected="true"
+                    sortable="false" type="list_c" />
+                    <ConnectorField filterable="true"
+                    name="returnAddress|externalId"
+                    selectable="true" selected="true"
+                    sortable="false" type="mselect" />
+                    <ConnectorField filterable="true"
+                    name="returnAddress|externalIdString"
+                    selectable="false" selected="false"
+                    sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="returnAddress|internalId"
+                    selectable="true" selected="true"
+                    sortable="false" type="mselect" />
+                    <ConnectorField filterable="true"
+                    name="returnAddress|internalIdNumber"
+                    selectable="false" selected="false"
+                    sortable="false" type="long" />
+                    <ConnectorField filterable="true"
+                    name="returnAddress|override" selectable="true"
+                    selected="true" sortable="false" type="bool" />
+                    <ConnectorField filterable="true"
+                    name="returnAddress|phone" selectable="true"
+                    selected="true" sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="returnAddress|state" selectable="true"
+                    selected="true" sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="returnAddress|zip" selectable="true"
+                    selected="true" sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="shippingAddress|address"
+                    selectable="true" selected="true"
+                    sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="shippingAddress|address1"
+                    selectable="true" selected="true"
+                    sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="shippingAddress|address2"
+                    selectable="true" selected="true"
+                    sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="shippingAddress|address3"
+                    selectable="true" selected="true"
+                    sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="shippingAddress|addressee"
+                    selectable="true" selected="true"
+                    sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="shippingAddress|attention"
+                    selectable="true" selected="true"
+                    sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="shippingAddress|city" selectable="true"
+                    selected="true" sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="shippingAddress|country"
+                    selectable="true" selected="true"
+                    sortable="false" type="enum" />
+                    <ConnectorField filterable="true"
+                    name="shippingAddress|countryCode"
+                    selectable="true" selected="true"
+                    sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="shippingAddress|customFieldList"
+                    selectable="true" selected="true"
+                    sortable="false" type="list_c" />
+                    <ConnectorField filterable="true"
+                    name="shippingAddress|externalId"
+                    selectable="true" selected="true"
+                    sortable="false" type="mselect" />
+                    <ConnectorField filterable="true"
+                    name="shippingAddress|externalIdString"
+                    selectable="false" selected="false"
+                    sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="shippingAddress|internalId"
+                    selectable="true" selected="true"
+                    sortable="false" type="mselect" />
+                    <ConnectorField filterable="true"
+                    name="shippingAddress|internalIdNumber"
+                    selectable="false" selected="false"
+                    sortable="false" type="long" />
+                    <ConnectorField filterable="true"
+                    name="shippingAddress|override"
+                    selectable="true" selected="true"
+                    sortable="false" type="bool" />
+                    <ConnectorField filterable="true"
+                    name="shippingAddress|phone" selectable="true"
+                    selected="true" sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="shippingAddress|state" selectable="true"
+                    selected="true" sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="shippingAddress|zip" selectable="true"
+                    selected="true" sortable="false" type="str" />
+                    <ConnectorField filterable="false"
+                    name="user|accountNumber" selectable="true"
+                    selected="true" sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="user|address" selectable="true"
+                    selected="false" sortable="false" type="str" />
+                    <ConnectorField filterable="false"
+                    name="user|address1" selectable="true"
+                    selected="true" sortable="false" type="str" />
+                    <ConnectorField filterable="false"
+                    name="user|address2" selectable="true"
+                    selected="true" sortable="false" type="str" />
+                    <ConnectorField filterable="false"
+                    name="user|address3" selectable="true"
+                    selected="true" sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="user|addressee" selectable="true"
+                    selected="false" sortable="false" type="str" />
+                    <ConnectorField filterable="false"
+                    name="user|addressInternalId" selectable="true"
+                    selected="true" sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="user|addressLabel" selectable="true"
+                    selected="false" sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="user|addressPhone" selectable="true"
+                    selected="false" sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="user|alienNumber" selectable="true"
+                    selected="false" sortable="false" type="str" />
+                    <ConnectorField filterable="false"
+                    name="user|altEmail" selectable="true"
+                    selected="true" sortable="false" type="str" />
+                    <ConnectorField filterable="false"
+                    name="user|altName" selectable="true"
+                    selected="true" sortable="false" type="str" />
+                    <ConnectorField filterable="false"
+                    name="user|altPhone" selectable="true"
+                    selected="true" sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="user|anniversary" selectable="false"
+                    selected="false" sortable="false"
+                    type="date" />
+                    <ConnectorField filterable="true"
+                    name="user|approvalLimit" selectable="true"
+                    selected="false" sortable="false" type="dbl" />
+                    <ConnectorField filterable="true"
+                    name="user|approver" selectable="true"
+                    selected="false" sortable="false"
+                    type="mselect" />
+                    <ConnectorField filterable="true"
+                    name="user|attention" selectable="true"
+                    selected="false" sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="user|authWorkDate" selectable="true"
+                    selected="false" sortable="false"
+                    type="date" />
+                    <ConnectorField filterable="true"
+                    name="user|billAddress" selectable="true"
+                    selected="false" sortable="false" type="str" />
+                    <ConnectorField filterable="false"
+                    name="user|billAddress1" selectable="true"
+                    selected="true" sortable="false" type="str" />
+                    <ConnectorField filterable="false"
+                    name="user|billAddress2" selectable="true"
+                    selected="true" sortable="false" type="str" />
+                    <ConnectorField filterable="false"
+                    name="user|billAddress3" selectable="true"
+                    selected="true" sortable="false" type="str" />
+                    <ConnectorField filterable="false"
+                    name="user|billAddressee" selectable="true"
+                    selected="true" sortable="false" type="str" />
+                    <ConnectorField filterable="false"
+                    name="user|billAttention" selectable="true"
+                    selected="true" sortable="false" type="str" />
+                    <ConnectorField filterable="false"
+                    name="user|billCity" selectable="true"
+                    selected="true" sortable="false" type="str" />
+                    <ConnectorField filterable="false"
+                    name="user|billCountry" selectable="true"
+                    selected="true" sortable="false" type="str" />
+                    <ConnectorField filterable="false"
+                    name="user|billCountryCode" selectable="true"
+                    selected="true" sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="user|billingClass" selectable="true"
+                    selected="false" sortable="false"
+                    type="mselect" />
+                    <ConnectorField filterable="false"
+                    name="user|billPhone" selectable="true"
+                    selected="true" sortable="false" type="str" />
+                    <ConnectorField filterable="false"
+                    name="user|billState" selectable="true"
+                    selected="true" sortable="false" type="str" />
+                    <ConnectorField filterable="false"
+                    name="user|billZipCode" selectable="true"
+                    selected="true" sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="user|birthDate" selectable="true"
+                    selected="false" sortable="false"
+                    type="date" />
+                    <ConnectorField filterable="true"
+                    name="user|birthDay" selectable="true"
+                    selected="false" sortable="false"
+                    type="date" />
+                    <ConnectorField filterable="true"
+                    name="user|cContribution" selectable="false"
+                    selected="false" sortable="false"
+                    type="mselect" />
+                    <ConnectorField filterable="true"
+                    name="user|city" selectable="true"
+                    selected="false" sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="user|class" selectable="true"
+                    selected="false" sortable="false"
+                    type="mselect" />
+                    <ConnectorField filterable="true"
+                    name="user|comments" selectable="true"
+                    selected="false" sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="user|commissionPlan" selectable="false"
+                    selected="false" sortable="false"
+                    type="mselect" />
+                    <ConnectorField filterable="true"
+                    name="user|concurrentWebServicesUser"
+                    selectable="true" selected="false"
+                    sortable="false" type="bool" />
+                    <ConnectorField filterable="true"
+                    name="user|country" selectable="true"
+                    selected="false" sortable="false"
+                    type="enum" />
+                    <ConnectorField filterable="false"
+                    name="user|countryCode" selectable="true"
+                    selected="true" sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="user|county" selectable="false"
+                    selected="false" sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="user|customFieldList" selectable="true"
+                    selected="false" sortable="false"
+                    type="list_c" />
+                    <ConnectorField filterable="true"
+                    name="user|dateCreated" selectable="true"
+                    selected="false" sortable="false"
+                    type="date" />
+                    <ConnectorField filterable="true"
+                    name="user|deduction" selectable="false"
+                    selected="false" sortable="false"
+                    type="mselect" />
+                    <ConnectorField filterable="true"
+                    name="user|department" selectable="true"
+                    selected="false" sortable="false"
+                    type="mselect" />
+                    <ConnectorField filterable="true"
+                    name="user|earning" selectable="false"
+                    selected="false" sortable="false"
+                    type="mselect" />
+                    <ConnectorField filterable="true"
+                    name="user|education" selectable="false"
+                    selected="false" sortable="false"
+                    type="mselect" />
+                    <ConnectorField filterable="true"
+                    name="user|eligibleForCommission"
+                    selectable="true" selected="false"
+                    sortable="false" type="bool" />
+                    <ConnectorField filterable="true"
+                    name="user|email" selectable="true"
+                    selected="false" sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="user|employeeStatus" selectable="true"
+                    selected="false" sortable="false"
+                    type="mselect" />
+                    <ConnectorField filterable="true"
+                    name="user|employeeType" selectable="true"
+                    selected="false" sortable="false"
+                    type="mselect" />
+                    <ConnectorField filterable="true"
+                    name="user|employeeTypeKpi" selectable="false"
+                    selected="false" sortable="false"
+                    type="bool" />
+                    <ConnectorField filterable="true"
+                    name="user|entityId" selectable="true"
+                    selected="false" sortable="false" type="str" />
+                    <ConnectorField filterable="false"
+                    name="user|entityNumber" selectable="true"
+                    selected="true" sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="user|ethnicity" selectable="true"
+                    selected="false" sortable="false"
+                    type="mselect" />
+                    <ConnectorField filterable="true"
+                    name="user|expenseLimit" selectable="true"
+                    selected="false" sortable="false" type="dbl" />
+                    <ConnectorField filterable="true"
+                    name="user|externalId" selectable="true"
+                    selected="false" sortable="false"
+                    type="mselect" />
+                    <ConnectorField filterable="true"
+                    name="user|externalIdString" selectable="false"
+                    selected="false" sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="user|fax" selectable="true"
+                    selected="false" sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="user|firstName" selectable="true"
+                    selected="false" sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="user|gender" selectable="true"
+                    selected="false" sortable="false"
+                    type="enum" />
+                    <ConnectorField filterable="true"
+                    name="user|giveAccess" selectable="true"
+                    selected="false" sortable="false"
+                    type="bool" />
+                    <ConnectorField filterable="true"
+                    name="user|globalSubscriptionStatus"
+                    selectable="true" selected="false"
+                    sortable="false" type="enum" />
+                    <ConnectorField filterable="true"
+                    name="user|group" selectable="false"
+                    selected="false" sortable="false"
+                    type="mselect" />
+                    <ConnectorField filterable="true"
+                    name="user|hireDate" selectable="true"
+                    selected="false" sortable="false"
+                    type="date" />
+                    <ConnectorField filterable="false"
+                    name="user|homePhone" selectable="true"
+                    selected="true" sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="user|I9Verified" selectable="false"
+                    selected="false" sortable="false"
+                    type="bool" />
+                    <ConnectorField filterable="false"
+                    name="user|i9Verified" selectable="true"
+                    selected="true" sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="user|image" selectable="true"
+                    selected="false" sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="user|internalId" selectable="true"
+                    selected="false" sortable="false"
+                    type="mselect" />
+                    <ConnectorField filterable="true"
+                    name="user|internalIdNumber" selectable="false"
+                    selected="false" sortable="false"
+                    type="long" />
+                    <ConnectorField filterable="true"
+                    name="user|isDefaultBilling" selectable="true"
+                    selected="false" sortable="false"
+                    type="bool" />
+                    <ConnectorField filterable="true"
+                    name="user|isDefaultShipping" selectable="true"
+                    selected="false" sortable="false"
+                    type="bool" />
+                    <ConnectorField filterable="true"
+                    name="user|isInactive" selectable="true"
+                    selected="false" sortable="false"
+                    type="bool" />
+                    <ConnectorField filterable="true"
+                    name="user|isJobResource" selectable="true"
+                    selected="false" sortable="false"
+                    type="bool" />
+                    <ConnectorField filterable="false"
+                    name="user|isSalesRep" selectable="true"
+                    selected="true" sortable="false" type="str" />
+                    <ConnectorField filterable="false"
+                    name="user|isSupportRep" selectable="true"
+                    selected="true" sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="user|isTemplate" selectable="true"
+                    selected="false" sortable="false"
+                    type="bool" />
+                    <ConnectorField filterable="true"
+                    name="user|jobDescription" selectable="false"
+                    selected="false" sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="user|laborCost" selectable="true"
+                    selected="false" sortable="false" type="dbl" />
+                    <ConnectorField filterable="true"
+                    name="user|language" selectable="true"
+                    selected="false" sortable="false"
+                    type="enum" />
+                    <ConnectorField filterable="true"
+                    name="user|lastModifiedDate" selectable="true"
+                    selected="false" sortable="false"
+                    type="date" />
+                    <ConnectorField filterable="true"
+                    name="user|lastName" selectable="true"
+                    selected="false" sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="user|lastPaidDate" selectable="true"
+                    selected="false" sortable="false"
+                    type="date" />
+                    <ConnectorField filterable="true"
+                    name="user|lastReviewDate" selectable="true"
+                    selected="false" sortable="false"
+                    type="date" />
+                    <ConnectorField filterable="true"
+                    name="user|level" selectable="true"
+                    selected="false" sortable="false"
+                    type="enum" />
+                    <ConnectorField filterable="true"
+                    name="user|location" selectable="true"
+                    selected="false" sortable="false"
+                    type="mselect" />
+                    <ConnectorField filterable="true"
+                    name="user|maritalStatus" selectable="true"
+                    selected="false" sortable="false"
+                    type="mselect" />
+                    <ConnectorField filterable="true"
+                    name="user|middleName" selectable="true"
+                    selected="false" sortable="false" type="str" />
+                    <ConnectorField filterable="false"
+                    name="user|mobilePhone" selectable="true"
+                    selected="true" sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="user|nextReviewDate" selectable="true"
+                    selected="false" sortable="false"
+                    type="date" />
+                    <ConnectorField filterable="true"
+                    name="user|offlineAccess" selectable="true"
+                    selected="false" sortable="false"
+                    type="bool" />
+                    <ConnectorField filterable="true"
+                    name="user|payFrequency" selectable="true"
+                    selected="false" sortable="false"
+                    type="enum" />
+                    <ConnectorField filterable="true"
+                    name="user|permChangeDate" selectable="true"
+                    selected="false" sortable="false"
+                    type="date" />
+                    <ConnectorField filterable="false"
+                    name="user|permChangeLevel" selectable="true"
+                    selected="true" sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="user|permission" selectable="true"
+                    selected="false" sortable="false"
+                    type="enum" />
+                    <ConnectorField filterable="true"
+                    name="user|permissionChange" selectable="true"
+                    selected="false" sortable="false"
+                    type="enum" />
+                    <ConnectorField filterable="true"
+                    name="user|phone" selectable="true"
+                    selected="false" sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="user|phoneticName" selectable="true"
+                    selected="false" sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="user|primaryEarningAmount"
+                    selectable="true" selected="false"
+                    sortable="false" type="dbl" />
+                    <ConnectorField filterable="true"
+                    name="user|primaryEarningItem"
+                    selectable="true" selected="false"
+                    sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="user|primaryEarningType"
+                    selectable="true" selected="false"
+                    sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="user|purchaseOrderApprovalLimit"
+                    selectable="true" selected="false"
+                    sortable="false" type="dbl" />
+                    <ConnectorField filterable="true"
+                    name="user|purchaseOrderApprover"
+                    selectable="true" selected="false"
+                    sortable="false" type="mselect" />
+                    <ConnectorField filterable="true"
+                    name="user|purchaseOrderLimit"
+                    selectable="true" selected="false"
+                    sortable="false" type="dbl" />
+                    <ConnectorField filterable="true"
+                    name="user|releaseDate" selectable="true"
+                    selected="false" sortable="false"
+                    type="date" />
+                    <ConnectorField filterable="true"
+                    name="user|residentStatus" selectable="true"
+                    selected="false" sortable="false"
+                    type="mselect" />
+                    <ConnectorField filterable="true"
+                    name="user|role" selectable="true"
+                    selected="false" sortable="false"
+                    type="mselect" />
+                    <ConnectorField filterable="true"
+                    name="user|roleChange" selectable="true"
+                    selected="false" sortable="false"
+                    type="mselect" />
+                    <ConnectorField filterable="false"
+                    name="user|roleChangeAction" selectable="true"
+                    selected="true" sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="user|roleChangeDate" selectable="true"
+                    selected="false" sortable="false"
+                    type="date" />
+                    <ConnectorField filterable="true"
+                    name="user|salesRep" selectable="false"
+                    selected="false" sortable="false"
+                    type="bool" />
+                    <ConnectorField filterable="true"
+                    name="user|salesRole" selectable="true"
+                    selected="false" sortable="false"
+                    type="mselect" />
+                    <ConnectorField filterable="true"
+                    name="user|salutation" selectable="true"
+                    selected="false" sortable="false" type="str" />
+                    <ConnectorField filterable="false"
+                    name="user|shipAddress1" selectable="true"
+                    selected="true" sortable="false" type="str" />
+                    <ConnectorField filterable="false"
+                    name="user|shipAddress2" selectable="true"
+                    selected="true" sortable="false" type="str" />
+                    <ConnectorField filterable="false"
+                    name="user|shipAddress3" selectable="true"
+                    selected="true" sortable="false" type="str" />
+                    <ConnectorField filterable="false"
+                    name="user|shipAddressee" selectable="true"
+                    selected="true" sortable="false" type="str" />
+                    <ConnectorField filterable="false"
+                    name="user|shipAttention" selectable="true"
+                    selected="true" sortable="false" type="str" />
+                    <ConnectorField filterable="false"
+                    name="user|shipCity" selectable="true"
+                    selected="true" sortable="false" type="str" />
+                    <ConnectorField filterable="false"
+                    name="user|shipCountry" selectable="true"
+                    selected="true" sortable="false" type="str" />
+                    <ConnectorField filterable="false"
+                    name="user|shipCountryCode" selectable="true"
+                    selected="true" sortable="false" type="str" />
+                    <ConnectorField filterable="false"
+                    name="user|shipPhone" selectable="true"
+                    selected="true" sortable="false" type="str" />
+                    <ConnectorField filterable="false"
+                    name="user|shipState" selectable="true"
+                    selected="true" sortable="false" type="str" />
+                    <ConnectorField filterable="false"
+                    name="user|shipZip" selectable="true"
+                    selected="true" sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="user|socialSecurityNumber"
+                    selectable="true" selected="false"
+                    sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="user|state" selectable="true"
+                    selected="false" sortable="false" type="str" />
+                    <ConnectorField filterable="false"
+                    name="user|subscription" selectable="true"
+                    selected="true" sortable="false" type="str" />
+                    <ConnectorField filterable="false"
+                    name="user|subscriptionDate" selectable="true"
+                    selected="true" sortable="false" type="str" />
+                    <ConnectorField filterable="false"
+                    name="user|subscriptionStatus"
+                    selectable="true" selected="true"
+                    sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="user|subsidiary" selectable="true"
+                    selected="false" sortable="false"
+                    type="mselect" />
+                    <ConnectorField filterable="true"
+                    name="user|supervisor" selectable="true"
+                    selected="false" sortable="false"
+                    type="mselect" />
+                    <ConnectorField filterable="true"
+                    name="user|supportRep" selectable="false"
+                    selected="false" sortable="false"
+                    type="bool" />
+                    <ConnectorField filterable="true"
+                    name="user|timeApprover" selectable="true"
+                    selected="false" sortable="false"
+                    type="mselect" />
+                    <ConnectorField filterable="true"
+                    name="user|title" selectable="true"
+                    selected="false" sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="user|usePerquest" selectable="true"
+                    selected="false" sortable="false"
+                    type="bool" />
+                    <ConnectorField filterable="true"
+                    name="user|useTimeData" selectable="true"
+                    selected="false" sortable="false"
+                    type="bool" />
+                    <ConnectorField filterable="true"
+                    name="user|visaExpDate" selectable="true"
+                    selected="false" sortable="false"
+                    type="date" />
+                    <ConnectorField filterable="true"
+                    name="user|visaType" selectable="true"
+                    selected="false" sortable="false"
+                    type="mselect" />
+                    <ConnectorField filterable="true"
+                    name="user|withholding" selectable="false"
+                    selected="false" sortable="false"
+                    type="mselect" />
+                    <ConnectorField filterable="true"
+                    name="user|workCalendar" selectable="true"
+                    selected="false" sortable="false"
+                    type="mselect" />
+                    <ConnectorField filterable="true"
+                    name="user|workplace" selectable="true"
+                    selected="false" sortable="false"
+                    type="mselect" />
+                    <ConnectorField filterable="true"
+                    name="user|zipCode" selectable="true"
+                    selected="false" sortable="false" type="str" />
+                    <ConnectorField filterable="true"
+                    name="user|CUSTOM_Sales_Engineer"
+                    selectable="true" selected="false"
+                    sortable="false" type="bool_c" />
+                    <ConnectorField filterable="true"
+                    name="user|CUSTOM_Prof__Services_Rep"
+                    selectable="true" selected="false"
+                    sortable="false" type="bool_c" />
+                  </FieldList>
+                  <Filter>
+                    <ConnectorBaseFilter>
+                      <ConnectorFilterLogical logicalOperator="and">
+
+                        <ConnectorFilterExpression expressionField="Subsidiary|isInactive"
+                        expressionOperator="is" key="1"
+                        name="IsInactive=" type="bool" />
+                      </ConnectorFilterLogical>
+                    </ConnectorBaseFilter>
+                  </Filter>
+                  <Sorts />
+                </ConnectorObject>
+              </Fields>
+              <Inputs>
+                <Input key="1" name="IsInactive=" />
+              </Inputs>
+            </QueryOptions>
+          </Options>
+        </GenericOperationConfig>
+      </Configuration>
+      <Tracking>
+        <TrackedFields />
+      </Tracking>
+      <Caching />
+    </Operation>
+  </Object>
+</Component>

@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Component xmlns:ns2="http://www.boomi.com/connector/annotation"
+xmlns:ns3="http://exacttarget.com/wsdl/partnerAPI"
+xmlns:ns4="urn:fault.partner.exacttarget.com"
+xmlns:ns5="http://schemas.boomi.com/sap/edi_dc40"
+xmlns:ns6="http://schemas.microsoft.com/2003/10/Serialization/"
+deleted="false">
+  <Id>1ec49e05-939b-4d08-a4c6-d94f2fa833b5</Id>
+  <Type>transform.function</Type>
+  <Name>NS Subsidiary Lookup Doc Cache</Name>
+  <Version>1</Version>
+  <FolderId name="Training-P-Chakraborty/Certification">
+  2400156</FolderId>
+  <AccountId>trainingpchakraborty-XJQZPO</AccountId>
+  <Properties />
+  <References>
+    <Ref compId="5f3f3d4a-7fb0-49fb-8817-a0fa9b985cde"
+    refId="function-1-documentCache" name="NS Subsidiary" />
+  </References>
+  <Description />
+  <Object>
+    <Function>
+      <Inputs>
+        <Input key="1" name="Name" />
+      </Inputs>
+      <Outputs>
+        <Output key="1" name="NS Internal ID" />
+      </Outputs>
+      <Steps>
+        <FunctionStep cacheEnabled="true" cacheOption="map"
+        category="Lookup" key="1" name="Document Cache Lookup"
+        position="1" sumEnabled="false" type="DocumentCacheLookup"
+        x="236.0" y="312.0">
+          <Inputs>
+            <Input default="" key="2" name="Name" />
+          </Inputs>
+          <Outputs>
+            <Output key="1"
+            name="@internalId (Subsidiary/@internalId)" />
+          </Outputs>
+          <Configuration>
+            <DocumentCacheLookup cacheIndex="1"
+            docCache="5f3f3d4a-7fb0-49fb-8817-a0fa9b985cde">
+              <Input index="2" keyId="2" name="Name" />
+              <Output index="1" key="3"
+              name="@internalId (Subsidiary/@internalId)" />
+            </DocumentCacheLookup>
+          </Configuration>
+        </FunctionStep>
+      </Steps>
+      <Mappings>
+        <Mapping fromFunction="1" fromKey="1"
+        fromNamePath="Document Cache Lookup/@internalId (Subsidiary/@internalId)"
+        fromType="function" toFunction="0" toKey="1"
+        toNamePath="Editor/NS Internal ID" toType="function" />
+        <Mapping fromFunction="0" fromKey="1"
+        fromNamePath="Editor/Name" fromType="function"
+        toFunction="1" toKey="2"
+        toNamePath="Document Cache Lookup/Name"
+        toType="function" />
+      </Mappings>
+    </Function>
+  </Object>
+</Component>

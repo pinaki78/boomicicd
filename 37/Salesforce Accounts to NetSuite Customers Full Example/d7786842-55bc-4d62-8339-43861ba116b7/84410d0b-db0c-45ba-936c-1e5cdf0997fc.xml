@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Component xmlns:ns2="http://www.boomi.com/connector/annotation"
+xmlns:ns3="http://exacttarget.com/wsdl/partnerAPI"
+xmlns:ns4="urn:fault.partner.exacttarget.com"
+xmlns:ns5="http://schemas.boomi.com/sap/edi_dc40"
+xmlns:ns6="http://schemas.microsoft.com/2003/10/Serialization/"
+deleted="false">
+  <Id>84410d0b-db0c-45ba-936c-1e5cdf0997fc</Id>
+  <Type>processproperty</Type>
+  <Name>CONST Global Values</Name>
+  <Version>1</Version>
+  <FolderId name="Training-P-Chakraborty/Certification">
+  2400156</FolderId>
+  <AccountId>trainingpchakraborty-XJQZPO</AccountId>
+  <Properties />
+  <References />
+  <Description />
+  <Object>
+    <DefinedProcessProperties>
+      <definedProcessProperty key="cce4249f-35d7-4a76-9fc9-66fc14a9c398">
+
+        <helpText />
+        <label>LOG_EVENT_INFO</label>
+        <type>string</type>
+        <defaultValue>INFO</defaultValue>
+        <allowedValues />
+        <persisted>false</persisted>
+      </definedProcessProperty>
+      <definedProcessProperty key="64467ab5-20ea-473d-bde2-038198e8c812">
+
+        <helpText />
+        <label>LOG_EVENT_WARNING</label>
+        <type>string</type>
+        <defaultValue>WARNING</defaultValue>
+        <allowedValues />
+        <persisted>false</persisted>
+      </definedProcessProperty>
+      <definedProcessProperty key="8dbf6093-55f0-4a87-84fb-76f9657efcc3">
+
+        <helpText />
+        <label>LOG_EVENT_ERROR</label>
+        <type>string</type>
+        <defaultValue>ERROR</defaultValue>
+        <allowedValues />
+        <persisted>false</persisted>
+      </definedProcessProperty>
+      <definedProcessProperty key="4841a681-37d8-4678-96be-43357fb099bf">
+
+        <helpText />
+        <label>TRUE</label>
+        <type>string</type>
+        <defaultValue>TRUE</defaultValue>
+        <allowedValues />
+        <persisted>false</persisted>
+      </definedProcessProperty>
+      <definedProcessProperty key="d5af4b81-ebef-4684-9ade-b9d511cc5cce">
+
+        <helpText />
+        <label>FALSE</label>
+        <type>string</type>
+        <defaultValue>FALSE</defaultValue>
+        <allowedValues />
+        <persisted>false</persisted>
+      </definedProcessProperty>
+    </DefinedProcessProperties>
+  </Object>
+</Component>

@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Component xmlns:ns2="http://www.boomi.com/connector/annotation"
+xmlns:ns3="http://exacttarget.com/wsdl/partnerAPI"
+xmlns:ns4="urn:fault.partner.exacttarget.com"
+xmlns:ns5="http://schemas.boomi.com/sap/edi_dc40"
+xmlns:ns6="http://schemas.microsoft.com/2003/10/Serialization/"
+deleted="false">
+  <Id>ee96c435-b6cd-49ad-9da6-e85bf7e87284</Id>
+  <Type>connector-action</Type>
+  <Name>Get Select Value 2016.1</Name>
+  <Version>1</Version>
+  <FolderId name="Training-P-Chakraborty/Certification">
+  2400156</FolderId>
+  <AccountId>trainingpchakraborty-XJQZPO</AccountId>
+  <Properties>
+    <Property>
+      <Name>connector-type</Name>
+      <Value>netsuitesdk</Value>
+    </Property>
+    <Property>
+      <Name>action-type</Name>
+      <Value>EXECUTE</Value>
+    </Property>
+    <Property>
+      <Name>parameter-profile</Name>
+      <Value>8215bec2-3d4c-4228-9a77-10828b10f8c6</Value>
+    </Property>
+    <Property>
+      <Name>output-profile</Name>
+      <Value>6d81af53-5ec2-4124-89a3-0cb904ba4621</Value>
+    </Property>
+  </Properties>
+  <References>
+    <Ref compId="6d81af53-5ec2-4124-89a3-0cb904ba4621"
+    refId="response-profile"
+    name="NetSuite Get Select Value EXECUTE Response 2016.1" />
+    <Ref compId="8215bec2-3d4c-4228-9a77-10828b10f8c6"
+    refId="request-profile"
+    name="NetSuite Get Select Value EXECUTE Request 2016.1" />
+  </References>
+  <Description />
+  <Object>
+    <Operation returnApplicationErrors="false"
+    trackResponse="false">
+      <Archiving directory="" enabled="false" />
+      <Configuration>
+        <GenericOperationConfig objectTypeId="recordRef-getSelectValue-platformCore"
+        objectTypeName="Get Select Value" operationType="EXECUTE"
+        requestProfile="8215bec2-3d4c-4228-9a77-10828b10f8c6"
+        requestProfileType="xml"
+        responseProfile="6d81af53-5ec2-4124-89a3-0cb904ba4621"
+        responseProfileType="xml">
+          <field id="ignoreReadOnlyFields" type="string"
+          value="notSet" />
+          <cookie role="INPUT">
+            <value>
+            H4sIAAAAAAAAALOxr8jNUShLLSrOzM+zVTLUM1BSSM1Lzk/JzEu3VQoNcdO1UFIoLknMS0nMyc9L
+            tVWqTC1Wsrez8UstKS7NLEn1TS1JdEksSbSzCUpNSy0Cak31T8pKTS7xySwu0bez0cdQCAANCr3t
+            cgAAAA==</value>
+          </cookie>
+          <cookie role="OUTPUT">
+            <value>
+            H4sIAAAAAAAAALOxr8jNUShLLSrOzM+zVTLUM1BSSM1Lzk/JzEu3VQoNcdO1UFIoLknMS0nMyc9L
+            tVWqTC1Wsrez8UstKS7NLEn1TS1JdEksSbSzCUpNSy0Cak31T8pKTS7xySwu0bez0cdQCAANCr3t
+            cgAAAA==</value>
+          </cookie>
+          <Options>
+            <QueryOptions>
+              <Fields>
+                <ConnectorObject name="Get Select Value">
+                  <FieldList>
+                    <ConnectorField filterable="true" name="name"
+                    selectable="true" selected="true"
+                    sortable="true" type="string"
+                    typeNamespace="http://www.w3.org/2001/XMLSchema" />
+                    <ConnectorField filterable="true"
+                    name="[@internalId]" selectable="true"
+                    selected="true" sortable="true" type="string"
+                    typeNamespace="http://www.w3.org/2001/XMLSchema" />
+                    <ConnectorField filterable="true"
+                    name="[@externalId]" selectable="true"
+                    selected="true" sortable="true" type="string"
+                    typeNamespace="http://www.w3.org/2001/XMLSchema" />
+                    <ConnectorField filterable="true"
+                    name="[@type]" selectable="true"
+                    selected="true" sortable="true"
+                    type="RecordType"
+                    typeNamespace="urn:types.core_2016_1.platform.webservices.netsuite.com" />
+                  </FieldList>
+                </ConnectorObject>
+              </Fields>
+              <Inputs />
+            </QueryOptions>
+          </Options>
+        </GenericOperationConfig>
+      </Configuration>
+      <Tracking>
+        <TrackedFields />
+      </Tracking>
+      <Caching />
+    </Operation>
+  </Object>
+</Component>

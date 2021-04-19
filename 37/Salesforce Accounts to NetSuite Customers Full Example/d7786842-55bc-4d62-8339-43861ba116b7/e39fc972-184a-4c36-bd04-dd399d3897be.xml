@@ -1,0 +1,271 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Component xmlns:ns2="http://www.boomi.com/connector/annotation"
+xmlns:ns3="http://exacttarget.com/wsdl/partnerAPI"
+xmlns:ns4="urn:fault.partner.exacttarget.com"
+xmlns:ns5="http://schemas.boomi.com/sap/edi_dc40"
+xmlns:ns6="http://schemas.microsoft.com/2003/10/Serialization/"
+deleted="false">
+  <Id>e39fc972-184a-4c36-bd04-dd399d3897be</Id>
+  <Type>transform.map</Type>
+  <Name>SFDC Account to NS Customer Upsert</Name>
+  <Version>1</Version>
+  <FolderId name="Training-P-Chakraborty/Certification">
+  2400156</FolderId>
+  <AccountId>trainingpchakraborty-XJQZPO</AccountId>
+  <Properties />
+  <References>
+    <Ref compId="64641838-3648-4831-bf81-0bec87f2b3d6"
+    refId="fromProfile" name="SF_Account_UPSERT_Request" />
+    <Ref compId="5f83c378-9e45-4168-a71f-ca93ddc4d239"
+    refId="toProfile" name="NetSuite Customer COMMON 2016.1" />
+    <Ref compId="4ad58a4b-73b8-49b5-8632-f929728ca58b"
+    refId="function-1" name="NS Get Select Value Lookup" />
+    <Ref compId="1ec49e05-939b-4d08-a4c6-d94f2fa833b5"
+    refId="function-2" name="NS Subsidiary Lookup Doc Cache" />
+    <Ref compId="09d0fce6-2550-41b7-8d14-44afae80c1f7"
+    refId="function-3" name="Split Address by Line Break" />
+    <Ref compId="09d0fce6-2550-41b7-8d14-44afae80c1f7"
+    refId="function-6" name="Split Address by Line Break" />
+  </References>
+  <Description />
+  <Object>
+    <Map fromProfile="64641838-3648-4831-bf81-0bec87f2b3d6"
+    toProfile="5f83c378-9e45-4168-a71f-ca93ddc4d239">
+      <Mappings>
+        <Mapping fromKey="2" fromKeyPath="*[@key='70']/*[@key='2']"
+        fromNamePath="Account/Id" fromType="profile" toKey="4"
+        toKeyPath="*[@key='1']/*[@key='4']"
+        toNamePath="Customer/externalId" toType="profile" />
+        <Mapping fromKey="4" fromKeyPath="*[@key='70']/*[@key='4']"
+        fromNamePath="Account/Name" fromType="profile" toKey="21"
+        toKeyPath="*[@key='1']/*[@key='21']"
+        toNamePath="Customer/companyName" toType="profile" />
+        <Mapping fromKey="96"
+        fromKeyPath="*[@key='70']/*[@key='96']"
+        fromNamePath="Account/WISAFI__Terms__c" fromType="profile"
+        toKey="87" toKeyPath="*[@key='1']/*[@key='87']"
+        toNamePath="Customer/terms" toType="profile" />
+        <Mapping fromKey="4" fromKeyPath="*[@key='70']/*[@key='4']"
+        fromNamePath="Account/Name" fromType="profile" toKey="13"
+        toKeyPath="*[@key='1']/*[@key='13']"
+        toNamePath="Customer/entityId" toType="profile" />
+        <Mapping fromKey="9" fromKeyPath="*[@key='70']/*[@key='9']"
+        fromNamePath="Account/BillingState" fromType="profile"
+        toFunction="1" toKey="3" toType="function" />
+        <Mapping fromFunction="1" fromKey="1" fromType="function"
+        toKey="69"
+        toKeyPath="*[@key='1']/*[@key='68']/*[@key='69']"
+        toNamePath="Customer/territory/internalId"
+        toType="profile" />
+        <Mapping fromKey="29"
+        fromKeyPath="*[@key='70']/*[@key='29']"
+        fromNamePath="Account/Site" fromType="profile"
+        toFunction="2" toKey="1" toType="function" />
+        <Mapping fromFunction="2" fromKey="1" fromType="function"
+        toKey="59"
+        toKeyPath="*[@key='1']/*[@key='58']/*[@key='59']"
+        toNamePath="Customer/subsidiary/internalId"
+        toType="profile" />
+        <Mapping fromKey="7" fromKeyPath="*[@key='70']/*[@key='7']"
+        fromNamePath="Account/BillingStreet" fromType="profile"
+        toFunction="3" toKey="1" toType="function" />
+        <Mapping fromKey="11"
+        fromKeyPath="*[@key='70']/*[@key='11']"
+        fromNamePath="Account/BillingCountry" fromType="profile"
+        toFunction="4" toKey="1" toType="function" />
+        <Mapping fromKey="12"
+        fromKeyPath="*[@key='70']/*[@key='12']"
+        fromNamePath="Account/ShippingStreet" fromType="profile"
+        toFunction="6" toKey="1" toType="function" />
+        <Mapping fromFunction="3" fromKey="2" fromType="function"
+        toKey="423"
+        toKeyPath="*[@key='1']/*[@key='219']/*[@key='221'][@tagListKey='2']/*[@key='415'][@tagListKey='2']/*[@key='423'][@tagListKey='2']"
+        toNamePath="Customer/addressbookList/addressbook[defaultBilling='true']/addressbookAddress/addr1"
+        toTagListKey="2" toType="profile" />
+        <Mapping fromFunction="3" fromKey="3" fromType="function"
+        toKey="424"
+        toKeyPath="*[@key='1']/*[@key='219']/*[@key='221'][@tagListKey='2']/*[@key='415'][@tagListKey='2']/*[@key='424'][@tagListKey='2']"
+        toNamePath="Customer/addressbookList/addressbook[defaultBilling='true']/addressbookAddress/addr2"
+        toTagListKey="2" toType="profile" />
+        <Mapping fromFunction="3" fromKey="4" fromType="function"
+        toKey="425"
+        toKeyPath="*[@key='1']/*[@key='219']/*[@key='221'][@tagListKey='2']/*[@key='415'][@tagListKey='2']/*[@key='425'][@tagListKey='2']"
+        toNamePath="Customer/addressbookList/addressbook[defaultBilling='true']/addressbookAddress/addr3"
+        toTagListKey="2" toType="profile" />
+        <Mapping fromKey="8" fromKeyPath="*[@key='70']/*[@key='8']"
+        fromNamePath="Account/BillingCity" fromType="profile"
+        toKey="426"
+        toKeyPath="*[@key='1']/*[@key='219']/*[@key='221'][@tagListKey='2']/*[@key='415'][@tagListKey='2']/*[@key='426'][@tagListKey='2']"
+        toNamePath="Customer/addressbookList/addressbook[defaultBilling='true']/addressbookAddress/city"
+        toTagListKey="2" toType="profile" />
+        <Mapping fromKey="9" fromKeyPath="*[@key='70']/*[@key='9']"
+        fromNamePath="Account/BillingState" fromType="profile"
+        toKey="427"
+        toKeyPath="*[@key='1']/*[@key='219']/*[@key='221'][@tagListKey='2']/*[@key='415'][@tagListKey='2']/*[@key='427'][@tagListKey='2']"
+        toNamePath="Customer/addressbookList/addressbook[defaultBilling='true']/addressbookAddress/state"
+        toTagListKey="2" toType="profile" />
+        <Mapping fromKey="10"
+        fromKeyPath="*[@key='70']/*[@key='10']"
+        fromNamePath="Account/BillingPostalCode" fromType="profile"
+        toKey="428"
+        toKeyPath="*[@key='1']/*[@key='219']/*[@key='221'][@tagListKey='2']/*[@key='415'][@tagListKey='2']/*[@key='428'][@tagListKey='2']"
+        toNamePath="Customer/addressbookList/addressbook[defaultBilling='true']/addressbookAddress/zip"
+        toTagListKey="2" toType="profile" />
+        <Mapping fromFunction="4" fromKey="2" fromType="function"
+        toKey="419"
+        toKeyPath="*[@key='1']/*[@key='219']/*[@key='221'][@tagListKey='2']/*[@key='415'][@tagListKey='2']/*[@key='419'][@tagListKey='2']"
+        toNamePath="Customer/addressbookList/addressbook[defaultBilling='true']/addressbookAddress/country"
+        toTagListKey="2" toType="profile" />
+        <Mapping fromFunction="6" fromKey="2" fromType="function"
+        toKey="423"
+        toKeyPath="*[@key='1']/*[@key='219']/*[@key='221'][@tagListKey='1']/*[@key='415'][@tagListKey='1']/*[@key='423'][@tagListKey='1']"
+        toNamePath="Customer/addressbookList/addressbook[defaultShipping='true']/addressbookAddress/addr1"
+        toTagListKey="1" toType="profile" />
+        <Mapping fromFunction="6" fromKey="3" fromType="function"
+        toKey="424"
+        toKeyPath="*[@key='1']/*[@key='219']/*[@key='221'][@tagListKey='1']/*[@key='415'][@tagListKey='1']/*[@key='424'][@tagListKey='1']"
+        toNamePath="Customer/addressbookList/addressbook[defaultShipping='true']/addressbookAddress/addr2"
+        toTagListKey="1" toType="profile" />
+        <Mapping fromFunction="6" fromKey="4" fromType="function"
+        toKey="425"
+        toKeyPath="*[@key='1']/*[@key='219']/*[@key='221'][@tagListKey='1']/*[@key='415'][@tagListKey='1']/*[@key='425'][@tagListKey='1']"
+        toNamePath="Customer/addressbookList/addressbook[defaultShipping='true']/addressbookAddress/addr3"
+        toTagListKey="1" toType="profile" />
+        <Mapping fromKey="13"
+        fromKeyPath="*[@key='70']/*[@key='13']"
+        fromNamePath="Account/ShippingCity" fromType="profile"
+        toKey="426"
+        toKeyPath="*[@key='1']/*[@key='219']/*[@key='221'][@tagListKey='1']/*[@key='415'][@tagListKey='1']/*[@key='426'][@tagListKey='1']"
+        toNamePath="Customer/addressbookList/addressbook[defaultShipping='true']/addressbookAddress/city"
+        toTagListKey="1" toType="profile" />
+        <Mapping fromKey="14"
+        fromKeyPath="*[@key='70']/*[@key='14']"
+        fromNamePath="Account/ShippingState" fromType="profile"
+        toKey="427"
+        toKeyPath="*[@key='1']/*[@key='219']/*[@key='221'][@tagListKey='1']/*[@key='415'][@tagListKey='1']/*[@key='427'][@tagListKey='1']"
+        toNamePath="Customer/addressbookList/addressbook[defaultShipping='true']/addressbookAddress/state"
+        toTagListKey="1" toType="profile" />
+        <Mapping fromKey="15"
+        fromKeyPath="*[@key='70']/*[@key='15']"
+        fromNamePath="Account/ShippingPostalCode"
+        fromType="profile" toKey="428"
+        toKeyPath="*[@key='1']/*[@key='219']/*[@key='221'][@tagListKey='1']/*[@key='415'][@tagListKey='1']/*[@key='428'][@tagListKey='1']"
+        toNamePath="Customer/addressbookList/addressbook[defaultShipping='true']/addressbookAddress/zip"
+        toTagListKey="1" toType="profile" />
+        <Mapping fromKey="16"
+        fromKeyPath="*[@key='70']/*[@key='16']"
+        fromNamePath="Account/ShippingCountry" fromType="profile"
+        toFunction="5" toKey="1" toType="function" />
+        <Mapping fromFunction="5" fromKey="2" fromType="function"
+        toKey="419"
+        toKeyPath="*[@key='1']/*[@key='219']/*[@key='221'][@tagListKey='1']/*[@key='415'][@tagListKey='1']/*[@key='419'][@tagListKey='1']"
+        toNamePath="Customer/addressbookList/addressbook[defaultShipping='true']/addressbookAddress/country"
+        toTagListKey="1" toType="profile" />
+      </Mappings>
+      <Functions optimizeExecutionOrder="true">
+        <FunctionStep category="userdefined"
+        id="4ad58a4b-73b8-49b5-8632-f929728ca58b" key="1"
+        name="NS Get Select Value Lookup" position="1"
+        type="userdefined" x="30.0" y="28.0">
+          <Inputs>
+            <Input default="territory" key="1"
+            name="Record Type" />
+            <Input default="name" key="2" name="Field" />
+            <Input default="" key="3" name="Text Value" />
+          </Inputs>
+          <Outputs>
+            <Output key="1" name="NS internal ID" />
+          </Outputs>
+          <Configuration />
+        </FunctionStep>
+        <FunctionStep category="userdefined"
+        id="1ec49e05-939b-4d08-a4c6-d94f2fa833b5" key="2"
+        name="Doc Cache Lookup NS Subsidiary" position="2"
+        type="userdefined" x="30.0" y="191.0">
+          <Inputs>
+            <Input key="1" name="Name" />
+          </Inputs>
+          <Outputs>
+            <Output key="1" name="NS Internal ID" />
+          </Outputs>
+          <Configuration />
+        </FunctionStep>
+        <FunctionStep category="userdefined"
+        id="09d0fce6-2550-41b7-8d14-44afae80c1f7" key="3"
+        name="Split Address by Line Break" position="3"
+        type="userdefined" x="30.0" y="305.0">
+          <Inputs>
+            <Input key="1" name="Street" />
+          </Inputs>
+          <Outputs>
+            <Output key="2" name="Line 1" />
+            <Output key="3" name="Line 2" />
+            <Output key="4" name="Line 3" />
+            <Output key="5" name="Line 4" />
+            <Output key="6" name="Line 5" />
+          </Outputs>
+          <Configuration />
+        </FunctionStep>
+        <FunctionStep cacheEnabled="true" cacheOption="map"
+        category="Lookup" enabled="true" key="4"
+        name="Cross Reference Lookup" position="4"
+        sumEnabled="false" type="CrossRefLookup" x="10.0"
+        y="492.0">
+          <Inputs>
+            <Input default="" isReset="false" key="1"
+            name="Country" />
+          </Inputs>
+          <Outputs>
+            <Output isReset="false" key="2" name="NS_Country" />
+          </Outputs>
+          <Configuration>
+            <CrossRefLookup crossRefTableId="e1c1444d-22cf-41fb-8c61-b1f79a68fc7f"
+            skipLookupIfNoInputs="true">
+              <Input index="1" name="Country" refId="1" />
+              <Output index="2" name="NS_Country" refId="2" />
+            </CrossRefLookup>
+          </Configuration>
+        </FunctionStep>
+        <FunctionStep cacheEnabled="true" cacheOption="map"
+        category="Lookup" enabled="true" key="5"
+        name="Cross Reference Lookup" position="5"
+        sumEnabled="false" type="CrossRefLookup" x="30.0"
+        y="770.0">
+          <Inputs>
+            <Input default="" isReset="false" key="1"
+            name="Country" />
+          </Inputs>
+          <Outputs>
+            <Output isReset="false" key="2" name="NS_Country" />
+          </Outputs>
+          <Configuration>
+            <CrossRefLookup crossRefTableId="e1c1444d-22cf-41fb-8c61-b1f79a68fc7f"
+            skipLookupIfNoInputs="true">
+              <Input index="1" name="Country" refId="1" />
+              <Output index="2" name="NS_Country" refId="2" />
+            </CrossRefLookup>
+          </Configuration>
+        </FunctionStep>
+        <FunctionStep cacheEnabled="false" cacheOption="none"
+        category="userdefined" enabled="true"
+        id="09d0fce6-2550-41b7-8d14-44afae80c1f7" key="6"
+        name="Split Address by Line Break" position="6"
+        sumEnabled="false" type="userdefined" x="30.0" y="583.0">
+          <Inputs>
+            <Input key="1" name="Street" />
+          </Inputs>
+          <Outputs>
+            <Output key="2" name="Line 1" />
+            <Output key="3" name="Line 2" />
+            <Output key="4" name="Line 3" />
+            <Output key="5" name="Line 4" />
+            <Output key="6" name="Line 5" />
+          </Outputs>
+          <Configuration />
+        </FunctionStep>
+      </Functions>
+      <Defaults />
+      <DocumentCacheJoins />
+    </Map>
+  </Object>
+</Component>
