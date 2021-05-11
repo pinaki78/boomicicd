@@ -1,0 +1,216 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Component xmlns:ns2="http://www.boomi.com/connector/annotation"
+xmlns:ns3="http://exacttarget.com/wsdl/partnerAPI"
+xmlns:ns4="urn:fault.partner.exacttarget.com"
+xmlns:ns5="http://schemas.boomi.com/sap/edi_dc40"
+xmlns:ns6="http://schemas.microsoft.com/2003/10/Serialization/"
+deleted="false">
+  <Id>ff0a1abd-e05d-4552-8a5b-3a35b88f498f</Id>
+  <Type>process</Type>
+  <Name>TestTimestamp</Name>
+  <Version>10</Version>
+  <FolderId name="Training-P-Chakraborty/Learnings">
+  2243703</FolderId>
+  <AccountId>trainingpchakraborty-XJQZPO</AccountId>
+  <Properties>
+    <Property>
+      <Name>startshape-type</Name>
+      <Value>NOACTION</Value>
+    </Property>
+    <Property>
+      <Name>overrides-enabled</Name>
+      <Value>false</Value>
+    </Property>
+  </Properties>
+  <References>
+    <Ref compId="2eba3b3c-e8e4-4a66-a4e6-672abbdb585d"
+    refId="shape3-step1-scriptId" name="SetErrorType" />
+  </References>
+  <Description />
+  <Object>
+    <process allowSimultaneous="false" enableUserLog="false"
+    updateRunDates="true" processLogOnErrorOnly="false"
+    workload="general" purgeDataImmediately="false">
+      <shapes>
+        <shape name="shape1" userlabel="" image="start" x="96.0"
+        y="96.0" shapetype="start">
+          <configuration>
+            <noaction />
+          </configuration>
+          <dragpoints>
+            <dragpoint name="shape1.dragpoint1" toShape="shape2"
+            x="256.0" y="105.0">
+              <linesegment name="shape1.dragpoint1.lineseg1"
+              length="0" orient="horizontal" x="130.0" y="111.0" />
+              <linesegment name="shape1.dragpoint1.lineseg2"
+              length="0" orient="vertical" x="130.0" y="111.0" />
+              <linesegment name="shape1.dragpoint1.lineseg3"
+              length="71" orient="horizontal" x="130.0"
+              y="111.0" />
+              <linesegment name="shape1.dragpoint1.lineseg4"
+              length="0" orient="vertical" x="201.0" y="111.0" />
+              <linesegment name="shape1.dragpoint1.lineseg5"
+              length="55" orient="horizontal" x="201.0"
+              y="111.0" />
+            </dragpoint>
+          </dragpoints>
+        </shape>
+        <shape name="shape2" userlabel=""
+        image="documentproperties_icon" x="272.0" y="96.0"
+        shapetype="documentproperties">
+          <configuration>
+            <documentproperties>
+              <documentproperty persist="false"
+              name="Dynamic Process Property - LAST_REDIS_TS"
+              propertyId="process.LAST_REDIS_TS" defaultValue=""
+              isTradingPartner="false" isDynamicCredential="false"
+              shouldEncrypt="false">
+                <sourcevalues>
+                  <parametervalue valueType="static" key="1">
+                    <staticparameter staticproperty="2021-04-01 13:00:00" />
+                  </parametervalue>
+                </sourcevalues>
+              </documentproperty>
+              <documentproperty persist="false"
+              name="Dynamic Process Property - ResponseErrorCode"
+              propertyId="process.ResponseErrorCode"
+              defaultValue="" isTradingPartner="false"
+              isDynamicCredential="false" shouldEncrypt="false">
+                <sourcevalues>
+                  <parametervalue valueType="static" key="2">
+                    <staticparameter staticproperty="410" />
+                  </parametervalue>
+                </sourcevalues>
+              </documentproperty>
+              <documentproperty persist="false"
+              name="Dynamic Process Property - SendRedisErrorMessage"
+              propertyId="process.SendRedisErrorMessage"
+              defaultValue="" isTradingPartner="false"
+              isDynamicCredential="false" shouldEncrypt="false">
+                <sourcevalues>
+                  <parametervalue valueType="static" key="3">
+                    <staticparameter staticproperty="0" />
+                  </parametervalue>
+                </sourcevalues>
+              </documentproperty>
+              <documentproperty persist="false"
+              name="Dynamic Process Property - RedisTimeout"
+              propertyId="process.RedisTimeout" defaultValue=""
+              isTradingPartner="false" isDynamicCredential="false"
+              shouldEncrypt="false">
+                <sourcevalues>
+                  <parametervalue valueType="static" key="4">
+                    <staticparameter staticproperty="15" />
+                  </parametervalue>
+                </sourcevalues>
+              </documentproperty>
+            </documentproperties>
+          </configuration>
+          <dragpoints>
+            <dragpoint name="shape2.dragpoint1" toShape="shape3"
+            x="432.0" y="105.0">
+              <linesegment name="shape2.dragpoint1.lineseg1"
+              length="0" orient="horizontal" x="306.0" y="111.0" />
+              <linesegment name="shape2.dragpoint1.lineseg2"
+              length="0" orient="vertical" x="306.0" y="111.0" />
+              <linesegment name="shape2.dragpoint1.lineseg3"
+              length="71" orient="horizontal" x="306.0"
+              y="111.0" />
+              <linesegment name="shape2.dragpoint1.lineseg4"
+              length="0" orient="vertical" x="377.0" y="111.0" />
+              <linesegment name="shape2.dragpoint1.lineseg5"
+              length="55" orient="horizontal" x="377.0"
+              y="111.0" />
+            </dragpoint>
+          </dragpoints>
+        </shape>
+        <shape name="shape3" userlabel="" image="dataprocess_icon"
+        x="448.0" y="96.0" shapetype="dataprocess">
+          <configuration>
+            <dataprocess>
+              <step name="Custom Scripting" processtype="12"
+              index="1" key="1">
+                <dataprocessscript useComponent="true"
+                componentId="2eba3b3c-e8e4-4a66-a4e6-672abbdb585d"
+                language="groovy">
+                  <script>import java.util.Properties; import
+                  java.io.InputStream; for( int i = 0; i &lt;
+                  dataContext.getDataCount(); i++ ) { InputStream
+                  is = dataContext.getStream(i); Properties props =
+                  dataContext.getProperties(i);
+                  dataContext.storeStream(is, props); }</script>
+                </dataprocessscript>
+              </step>
+            </dataprocess>
+          </configuration>
+          <dragpoints>
+            <dragpoint name="shape3.dragpoint1" toShape="shape4"
+            x="624.0" y="105.0">
+              <linesegment name="shape3.dragpoint1.lineseg1"
+              length="0" orient="horizontal" x="482.0" y="111.0" />
+              <linesegment name="shape3.dragpoint1.lineseg2"
+              length="0" orient="vertical" x="482.0" y="111.0" />
+              <linesegment name="shape3.dragpoint1.lineseg3"
+              length="79" orient="horizontal" x="482.0"
+              y="111.0" />
+              <linesegment name="shape3.dragpoint1.lineseg4"
+              length="0" orient="vertical" x="561.0" y="111.0" />
+              <linesegment name="shape3.dragpoint1.lineseg5"
+              length="63" orient="horizontal" x="561.0"
+              y="111.0" />
+            </dragpoint>
+          </dragpoints>
+        </shape>
+        <shape name="shape4" userlabel="" image="notify_icon"
+        x="640.0" y="96.0" shapetype="notify">
+          <configuration>
+            <notify title="" disableEvent="true"
+            enableUserLog="false" perExecution="false">
+              <notifyMessage>TS:{1} Type:{2}
+              SendRedis:{3}</notifyMessage>
+              <notifyMessageLevel>INFO</notifyMessageLevel>
+              <notifyParameters>
+                <parametervalue valueType="process" key="0">
+                  <processparameter processproperty="LAST_REDIS_TS"
+                  processpropertydefaultvalue="" />
+                </parametervalue>
+                <parametervalue valueType="process" key="1">
+                  <processparameter processproperty="ErrorTypeDetected"
+                  processpropertydefaultvalue="" />
+                </parametervalue>
+                <parametervalue valueType="process" key="2">
+                  <processparameter processproperty="SendRedisError"
+                  processpropertydefaultvalue="" />
+                </parametervalue>
+              </notifyParameters>
+            </notify>
+          </configuration>
+          <dragpoints>
+            <dragpoint name="shape4.dragpoint1" toShape="shape5"
+            x="784.0" y="105.0">
+              <linesegment name="shape4.dragpoint1.lineseg1"
+              length="0" orient="horizontal" x="674.0" y="111.0" />
+              <linesegment name="shape4.dragpoint1.lineseg2"
+              length="0" orient="vertical" x="674.0" y="111.0" />
+              <linesegment name="shape4.dragpoint1.lineseg3"
+              length="63" orient="horizontal" x="674.0"
+              y="111.0" />
+              <linesegment name="shape4.dragpoint1.lineseg4"
+              length="0" orient="vertical" x="737.0" y="111.0" />
+              <linesegment name="shape4.dragpoint1.lineseg5"
+              length="47" orient="horizontal" x="737.0"
+              y="111.0" />
+            </dragpoint>
+          </dragpoints>
+        </shape>
+        <shape name="shape5" userlabel="" image="stop_icon"
+        x="800.0" y="96.0" shapetype="stop">
+          <configuration>
+            <stop continue="true" />
+          </configuration>
+          <dragpoints />
+        </shape>
+      </shapes>
+    </process>
+  </Object>
+</Component>
